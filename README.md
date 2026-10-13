@@ -7,6 +7,7 @@ This is an n8n community node for the [Salvy](https://salvy.com.br) public API (
 - [Installation](#installation)
 - [Credentials](#credentials)
 - [Operations](#operations)
+- [Trigger](#trigger)
 - [Compatibility](#compatibility)
 - [Development](#development)
 - [Resources](#resources)
@@ -117,6 +118,20 @@ Generated from `openapi/salvy-v3.json` by `npm run generate`. "generated" means 
 
 <!-- operations:end -->
 
+## Trigger
+
+**Salvy Trigger** starts a workflow when Salvy sends a webhook event.
+
+- Pick one or more **Events**; the list is loaded from `GET /api/v3/webhook-event-types`, so new event types show up without a node update.
+- When the workflow is activated, the node registers its production webhook URL with `POST /api/v3/webhook-endpoints` and stores the endpoint ID and signing secret in the workflow's static data. Deactivating the workflow deletes the endpoint. If the stored endpoint was registered for a different URL or event list, it is replaced.
+- Every delivery is verified with the [Standard Webhooks](https://www.standardwebhooks.com/) (Svix) signature scheme: HMAC-SHA256 over the raw body, constant-time comparison, any of several `v1` signatures accepted, and timestamps more than 5 minutes off rejected. Invalid deliveries get `401` and do not start the workflow.
+- Each delivery produces one item: `{ type, timestamp, data }`.
+
+Requirements:
+
+- A **company** API key with the `webhook-endpoint:create`, `webhook-endpoint:read` and `webhook-endpoint:delete` scopes.
+- Your n8n instance must be reachable from the internet over **HTTPS** (the API only accepts `https://` webhook URLs). Set `WEBHOOK_URL` if n8n runs behind a proxy.
+
 ## Compatibility
 
 Built with `@n8n/node-cli` 0.52.2. Tested by loading the built node into n8n 2.43.4.
@@ -129,6 +144,7 @@ npm run spec:refresh   # download the latest OpenAPI spec from docs.salvy.com.br
 npm run generate       # regenerate nodes/Salvy/Salvy.properties.generated.ts
 npm run lint
 npm run build
+npm test               # build, then run the trigger's signature and webhook lifecycle tests
 npm run dev            # run n8n locally with the node loaded
 ```
 
