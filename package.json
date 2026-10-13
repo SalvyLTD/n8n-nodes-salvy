@@ -28,7 +28,8 @@
 		"generate": "node scripts/generate.mjs",
 		"spec:refresh": "node scripts/refresh-spec.mjs",
 		"release": "n8n-node release",
-		"prepublishOnly": "n8n-node prerelease"
+		"prepublishOnly": "n8n-node prerelease",
+		"test": "n8n-node build && node --test test/*.test.mjs"
 	},
 	"files": [
 		"dist",
@@ -42,7 +43,8 @@
 			"dist/credentials/SalvyApi.credentials.js"
 		],
 		"nodes": [
-			"dist/nodes/Salvy/Salvy.node.js"
+			"dist/nodes/Salvy/Salvy.node.js",
+			"dist/nodes/SalvyTrigger/SalvyTrigger.node.js"
 		]
 	},
 	"devDependencies": {
