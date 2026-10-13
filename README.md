@@ -13,7 +13,7 @@ This is an n8n community node for the [Salvy](https://salvy.com.br) public API (
 
 ## Installation
 
-Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes/installation/) in the n8n community nodes documentation and install the package `n8n-nodes-salvy`.
+Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes/installation/) in the n8n community nodes documentation and install the package `@salvyltd/n8n-nodes-salvy`.
 
 ## Credentials
 

@@ -1,5 +1,5 @@
 {
-	"node": "n8n-nodes-salvy.salvy",
+	"node": "@salvyltd/n8n-nodes-salvy.salvy",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": ["Communication", "Finance & Accounting"],

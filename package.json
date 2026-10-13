@@ -1,5 +1,5 @@
 {
-	"name": "n8n-nodes-salvy",
+	"name": "@salvyltd/n8n-nodes-salvy",
 	"version": "0.1.0",
 	"description": "n8n community node for the Salvy public API: phone accounts, employees, cost centers, assets and invoices",
 	"license": "MIT",
@@ -53,5 +53,9 @@
 	},
 	"peerDependencies": {
 		"n8n-workflow": "*"
+	},
+	"publishConfig": {
+		"registry": "https://registry.npmjs.org/",
+		"access": "public"
 	}
 }
