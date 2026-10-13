@@ -608,7 +608,7 @@ for (const resource of Object.keys(RESOURCES)) {
 					description: 'Max number of results to return',
 					displayOptions: { show: { ...show, returnAll: [false] } },
 					routing: {
-						send: { type: 'query', property: 'pageSize', value: '={{ $value }}' },
+						request: { qs: { page: 1, pageSize: '={{ $value }}' } },
 						output: { maxResults: '={{ $value }}' },
 					},
 				},
@@ -668,6 +668,8 @@ for (const resource of Object.keys(RESOURCES)) {
 			routing.request.headers = { Accept: cfg.binary.accept };
 			routing.output = {
 				postReceive: [
+					// Drop the raw buffer from item.json; the file goes to item.binary.
+					{ type: 'set', properties: { value: '={{ {} }}' } },
 					{
 						type: 'binaryData',
 						properties: { destinationProperty: '={{$parameter["binaryPropertyName"]}}' },

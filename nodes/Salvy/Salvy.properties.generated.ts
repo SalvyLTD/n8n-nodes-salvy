@@ -217,6 +217,12 @@ export const properties: INodeProperties[] = [
 					output: {
 						postReceive: [
 							{
+								type: 'set',
+								properties: {
+									value: '={{ {} }}',
+								},
+							},
+							{
 								type: 'binaryData',
 								properties: {
 									destinationProperty: '={{$parameter["binaryPropertyName"]}}',
@@ -597,6 +603,12 @@ export const properties: INodeProperties[] = [
 					output: {
 						postReceive: [
 							{
+								type: 'set',
+								properties: {
+									value: '={{ {} }}',
+								},
+							},
+							{
 								type: 'binaryData',
 								properties: {
 									destinationProperty: '={{$parameter["binaryPropertyName"]}}',
@@ -623,6 +635,12 @@ export const properties: INodeProperties[] = [
 					},
 					output: {
 						postReceive: [
+							{
+								type: 'set',
+								properties: {
+									value: '={{ {} }}',
+								},
+							},
 							{
 								type: 'binaryData',
 								properties: {
@@ -651,6 +669,12 @@ export const properties: INodeProperties[] = [
 					},
 					output: {
 						postReceive: [
+							{
+								type: 'set',
+								properties: {
+									value: '={{ {} }}',
+								},
+							},
 							{
 								type: 'binaryData',
 								properties: {
@@ -1294,10 +1318,11 @@ export const properties: INodeProperties[] = [
 			},
 		},
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
-				value: '={{ $value }}',
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ $value }}',
+				},
 			},
 			output: {
 				maxResults: '={{ $value }}',
@@ -2549,10 +2574,11 @@ export const properties: INodeProperties[] = [
 			},
 		},
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
-				value: '={{ $value }}',
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ $value }}',
+				},
 			},
 			output: {
 				maxResults: '={{ $value }}',
@@ -2877,10 +2903,11 @@ export const properties: INodeProperties[] = [
 			},
 		},
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
-				value: '={{ $value }}',
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ $value }}',
+				},
 			},
 			output: {
 				maxResults: '={{ $value }}',
@@ -2938,10 +2965,11 @@ export const properties: INodeProperties[] = [
 			},
 		},
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
-				value: '={{ $value }}',
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ $value }}',
+				},
 			},
 			output: {
 				maxResults: '={{ $value }}',
@@ -3480,10 +3508,11 @@ export const properties: INodeProperties[] = [
 			},
 		},
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
-				value: '={{ $value }}',
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ $value }}',
+				},
 			},
 			output: {
 				maxResults: '={{ $value }}',
@@ -4738,10 +4767,11 @@ export const properties: INodeProperties[] = [
 			},
 		},
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
-				value: '={{ $value }}',
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ $value }}',
+				},
 			},
 			output: {
 				maxResults: '={{ $value }}',
@@ -5029,10 +5059,11 @@ export const properties: INodeProperties[] = [
 			},
 		},
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
-				value: '={{ $value }}',
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ $value }}',
+				},
 			},
 			output: {
 				maxResults: '={{ $value }}',
@@ -5951,10 +5982,11 @@ export const properties: INodeProperties[] = [
 			},
 		},
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
-				value: '={{ $value }}',
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ $value }}',
+				},
 			},
 			output: {
 				maxResults: '={{ $value }}',
@@ -6317,10 +6349,11 @@ export const properties: INodeProperties[] = [
 			},
 		},
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
-				value: '={{ $value }}',
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ $value }}',
+				},
 			},
 			output: {
 				maxResults: '={{ $value }}',
@@ -6805,10 +6838,11 @@ export const properties: INodeProperties[] = [
 			},
 		},
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
-				value: '={{ $value }}',
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ $value }}',
+				},
 			},
 			output: {
 				maxResults: '={{ $value }}',
@@ -7118,10 +7152,11 @@ export const properties: INodeProperties[] = [
 			},
 		},
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
-				value: '={{ $value }}',
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ $value }}',
+				},
 			},
 			output: {
 				maxResults: '={{ $value }}',
