@@ -26,6 +26,7 @@
 		"endpoint": "GET /api/v3/area-codes",
 		"status": "fixed",
 		"notes": [
+			"not paginated (no `pagination` in the response): no Return All/Limit",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
 			"list response split into one item per record (`data`)"
 		]
@@ -39,6 +40,7 @@
 		"endpoint": "GET /api/v3/plans",
 		"status": "fixed",
 		"notes": [
+			"not paginated (no `pagination` in the response): no Return All/Limit",
 			"list response split into one item per record (`data`)"
 		]
 	},

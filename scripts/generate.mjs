@@ -571,6 +571,21 @@ for (const resource of Object.keys(RESOURCES)) {
 		}
 		fieldsOut.push(...top);
 
+		// Pagination is spec-driven: Return All/Limit only when the request takes
+		// page/pageSize AND the 2xx response carries a `pagination` object.
+		const okResponse = Object.entries(op.responses ?? {}).find(([c]) => c.startsWith('2'))?.[1]
+			?.content?.['application/json']?.schema;
+		const hasPaginationObject = [okResponse, ...(okResponse?.oneOf ?? [])].some(
+			(sc) => sc?.properties?.pagination,
+		);
+		if (paginated !== hasPaginationObject) {
+			throw new Error(
+				`${opId}: page/pageSize params (${paginated}) and response pagination object (${hasPaginationObject}) disagree`,
+			);
+		}
+		if (!paginated && cfg.value === 'getAll') {
+			fix(opId, 'not paginated (no `pagination` in the response): no Return All/Limit');
+		}
 		if (paginated) {
 			fix(opId, 'page/pageSize replaced by Return All + Limit with generic pagination');
 			fieldsOut.push(
