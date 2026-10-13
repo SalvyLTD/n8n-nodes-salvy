@@ -1,0 +1,7 @@
+openapi/
+dist/
+node_modules/
+package-lock.json
+.agents/
+AGENTS.md
+.github/

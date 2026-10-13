@@ -1,51 +1,57 @@
 {
-    "name": "n8n-nodes-salvy",
-    "version": "0.1.0",
-    "description": "",
-    "license": "MIT",
-    "homepage": "",
-    "keywords": [
-        "n8n-community-node-package"
-    ],
-    "author": {
-        "name": "Mizael Almeida",
-        "email": "mizael.almeida@salvy.com.br"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/<...>/n8n-nodes-<...>.git"
-    },
-   "scripts": {
+	"name": "n8n-nodes-salvy",
+	"version": "0.1.0",
+	"description": "n8n community node for the Salvy public API: phone accounts, employees, cost centers, assets and invoices",
+	"license": "MIT",
+	"homepage": "https://github.com/SalvyLTD/n8n-nodes-salvy",
+	"keywords": [
+		"n8n-community-node-package",
+		"n8n",
+		"salvy",
+		"telecom",
+		"mvno"
+	],
+	"author": {
+		"name": "Salvy",
+		"email": "mizael.almeida@salvy.com.br"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/SalvyLTD/n8n-nodes-salvy.git"
+	},
+	"scripts": {
 		"build": "n8n-node build",
 		"build:watch": "tsc --watch",
 		"dev": "n8n-node dev",
 		"lint": "n8n-node lint",
-        "lint:fix": "n8n-node lint --fix",
+		"lint:fix": "n8n-node lint --fix",
+		"generate": "node scripts/generate.mjs",
+		"spec:refresh": "node scripts/refresh-spec.mjs",
 		"release": "n8n-node release",
 		"prepublishOnly": "n8n-node prerelease"
 	},
-    "files": [
-        "dist"
-    ],
-    "n8n": {
-        "n8nNodesApiVersion": 1,
-        "strict": true,
-        "credentials": [
-            "dist/credentials/GithubIssuesApi.credentials.js",
-            "dist/credentials/GithubIssuesOAuth2Api.credentials.js"
-        ],
-        "nodes": [
-            "dist/nodes/GithubIssues/GithubIssues.node.js"
-        ]
-    },
-    "devDependencies": {
-        "@n8n/node-cli": "*",
-        "eslint": "9.32.0",
-        "prettier": "3.6.2",
-        "release-it": "^21.1.0",
-        "typescript": "5.9.2"
-    },
-    "peerDependencies": {
-        "n8n-workflow": "*"
-    }
+	"files": [
+		"dist"
+	],
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"strict": true,
+		"credentials": [
+			"dist/credentials/SalvyApi.credentials.js"
+		],
+		"nodes": [
+			"dist/nodes/Salvy/Salvy.node.js"
+		]
+	},
+	"devDependencies": {
+		"@devlikeapro/n8n-openapi-node": "0.1.4",
+		"@n8n/node-cli": "0.52.2",
+		"eslint": "9.32.0",
+		"prettier": "3.6.2",
+		"release-it": "^21.1.0",
+		"typescript": "5.9.2"
+	},
+	"peerDependencies": {
+		"n8n-workflow": "*"
+	}
 }

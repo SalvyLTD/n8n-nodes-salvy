@@ -1,0 +1,426 @@
+{
+	"publicGetTaskV3": {
+		"endpoint": "GET /api/v3/tasks/{id}",
+		"status": "generated",
+		"notes": []
+	},
+	"publicListTaskResultsV3": {
+		"endpoint": "GET /api/v3/tasks/{id}/results",
+		"status": "fixed",
+		"notes": [
+			"array query params as multi-select (generator sends them as a JSON string)",
+			"page/pageSize replaced by Return All + Limit with generic pagination",
+			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
+			"response is a oneOf union keyed by `type`; items are passed through as-is (the generator does not read responses)",
+			"list response split into one item per record (`data`)"
+		]
+	},
+	"publicCreateWebrtcTokenV3": {
+		"endpoint": "POST /api/v3/webrtc/tokens",
+		"status": "excluded",
+		"notes": [
+			"WebRTC is experimental; excluded from this node on purpose."
+		]
+	},
+	"publicListAreaCodesV3": {
+		"endpoint": "GET /api/v3/area-codes",
+		"status": "fixed",
+		"notes": [
+			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
+			"list response split into one item per record (`data`)"
+		]
+	},
+	"publicGetPlanV3": {
+		"endpoint": "GET /api/v3/plans/{id}",
+		"status": "generated",
+		"notes": []
+	},
+	"publicListPlansV3": {
+		"endpoint": "GET /api/v3/plans",
+		"status": "fixed",
+		"notes": [
+			"list response split into one item per record (`data`)"
+		]
+	},
+	"publicListPhoneAccountGroupsV3": {
+		"endpoint": "GET /api/v3/phone-account-groups",
+		"status": "fixed",
+		"notes": [
+			"page/pageSize replaced by Return All + Limit with generic pagination",
+			"list response split into one item per record (`data`)"
+		]
+	},
+	"publicCreatePhoneAccountGroupV3": {
+		"endpoint": "POST /api/v3/phone-account-groups",
+		"status": "fixed",
+		"notes": [
+			"optional body fields grouped under Additional Fields (generator sends every field, even empty)"
+		]
+	},
+	"publicGetPhoneAccountGroupV3": {
+		"endpoint": "GET /api/v3/phone-account-groups/{id}",
+		"status": "generated",
+		"notes": []
+	},
+	"publicUpdatePhoneAccountGroupV3": {
+		"endpoint": "PATCH /api/v3/phone-account-groups/{id}",
+		"status": "fixed",
+		"notes": [
+			"optional body fields grouped under Update Fields (generator sends every field, even empty)"
+		]
+	},
+	"publicDeletePhoneAccountGroupV3": {
+		"endpoint": "DELETE /api/v3/phone-account-groups/{id}",
+		"status": "fixed",
+		"notes": [
+			"204 No Content mapped to { success: true }"
+		]
+	},
+	"publicActivatePhoneAccountV3": {
+		"endpoint": "POST /api/v3/phone-accounts/{id}/activate",
+		"status": "fixed",
+		"notes": [
+			"optional body fields grouped under Additional Fields (generator sends every field, even empty)"
+		]
+	},
+	"publicBatchUpdatePhoneAccountsCostCenterV3": {
+		"endpoint": "POST /api/v3/phone-accounts/batch-update-cost-center",
+		"status": "fixed",
+		"notes": [
+			"nullable types (OpenAPI 3.1) collapsed",
+			"`phoneAccountIds` (array of IDs) as comma-separated text (generator: raw JSON field)"
+		]
+	},
+	"publicBlockPhoneAccountV3": {
+		"endpoint": "POST /api/v3/phone-accounts/{id}/block",
+		"status": "fixed",
+		"notes": [
+			"optional body fields grouped under Additional Fields (generator sends every field, even empty)"
+		]
+	},
+	"publicCancelPhoneAccountV3": {
+		"endpoint": "POST /api/v3/phone-accounts/{id}/cancel",
+		"status": "fixed",
+		"notes": [
+			"optional body fields grouped under Additional Fields (generator sends every field, even empty)"
+		]
+	},
+	"publicCreateMobileDidPhoneAccountV3": {
+		"endpoint": "POST /api/v3/phone-accounts/mobile-did",
+		"status": "fixed",
+		"notes": [
+			"nullable types (OpenAPI 3.1) collapsed",
+			"nested `customFields` exposed as a JSON field (generator: first level only)",
+			"optional body fields grouped under Additional Fields (generator sends every field, even empty)"
+		]
+	},
+	"publicCreateMobilePhoneAccountV3": {
+		"endpoint": "POST /api/v3/phone-accounts/mobile",
+		"status": "fixed",
+		"notes": [
+			"oneOf body merged; branch-only fields shown per `simType`",
+			"nullable types (OpenAPI 3.1) collapsed",
+			"nested `customFields` exposed as a JSON field (generator: first level only)",
+			"optional body fields grouped under Additional Fields (generator sends every field, even empty)"
+		]
+	},
+	"publicGetPhoneAccountBalanceV3": {
+		"endpoint": "GET /api/v3/phone-accounts/{id}/balance",
+		"status": "generated",
+		"notes": []
+	},
+	"publicGetPhoneAccountEsimV3": {
+		"endpoint": "GET /api/v3/phone-accounts/{id}/esim",
+		"status": "generated",
+		"notes": []
+	},
+	"publicGetPhoneAccountV3": {
+		"endpoint": "GET /api/v3/phone-accounts/{id}",
+		"status": "generated",
+		"notes": []
+	},
+	"publicUpdatePhoneAccountV3": {
+		"endpoint": "PATCH /api/v3/phone-accounts/{id}",
+		"status": "fixed",
+		"notes": [
+			"nullable types (OpenAPI 3.1) collapsed",
+			"nested `customFields` exposed as a JSON field (generator: first level only)",
+			"optional body fields grouped under Update Fields (generator sends every field, even empty)"
+		]
+	},
+	"publicListPhoneAccountSmsMessagesV3": {
+		"endpoint": "GET /api/v3/phone-accounts/{id}/sms-messages",
+		"status": "fixed",
+		"notes": [
+			"array query params as multi-select (generator sends them as a JSON string)",
+			"page/pageSize replaced by Return All + Limit with generic pagination",
+			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
+			"list response split into one item per record (`data`)"
+		]
+	},
+	"publicListPhoneAccountsV3": {
+		"endpoint": "GET /api/v3/phone-accounts",
+		"status": "fixed",
+		"notes": [
+			"array query params as multi-select (generator sends them as a JSON string)",
+			"array query params as comma-separated text (generator sends them as a JSON string)",
+			"page/pageSize replaced by Return All + Limit with generic pagination",
+			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
+			"list response split into one item per record (`data`)"
+		]
+	},
+	"publicSimulatePhoneAccountSmsV3": {
+		"endpoint": "POST /api/v3/phone-accounts/{id}/sms",
+		"status": "fixed",
+		"notes": [
+			"204 No Content mapped to { success: true }"
+		]
+	},
+	"publicTopUpPhoneAccountDataV3": {
+		"endpoint": "POST /api/v3/phone-accounts/{id}/top-up-data",
+		"status": "generated",
+		"notes": []
+	},
+	"publicUnblockPhoneAccountV3": {
+		"endpoint": "POST /api/v3/phone-accounts/{id}/unblock",
+		"status": "generated",
+		"notes": []
+	},
+	"publicUnschedulePhoneAccountCancellationV3": {
+		"endpoint": "POST /api/v3/phone-accounts/{id}/unschedule-cancellation",
+		"status": "generated",
+		"notes": []
+	},
+	"publicBatchSyncEmployeesV3": {
+		"endpoint": "POST /api/v3/employees/batch-sync",
+		"status": "fixed",
+		"notes": [
+			"nested `employees` exposed as a JSON field (generator: first level only)"
+		]
+	},
+	"publicListEmployeesV3": {
+		"endpoint": "GET /api/v3/employees",
+		"status": "fixed",
+		"notes": [
+			"array query params as multi-select (generator sends them as a JSON string)",
+			"page/pageSize replaced by Return All + Limit with generic pagination",
+			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
+			"list response split into one item per record (`data`)"
+		]
+	},
+	"publicCreateEmployeeV3": {
+		"endpoint": "POST /api/v3/employees",
+		"status": "fixed",
+		"notes": [
+			"nested `address` hand-written as a collection (generator: first level only)",
+			"optional body fields grouped under Additional Fields (generator sends every field, even empty)"
+		]
+	},
+	"publicGetEmployeeV3": {
+		"endpoint": "GET /api/v3/employees/{id}",
+		"status": "generated",
+		"notes": []
+	},
+	"publicUpdateEmployeeV3": {
+		"endpoint": "PATCH /api/v3/employees/{id}",
+		"status": "fixed",
+		"notes": [
+			"nullable types (OpenAPI 3.1) collapsed",
+			"nested `address` hand-written as a collection (generator: first level only)",
+			"optional body fields grouped under Update Fields (generator sends every field, even empty)"
+		]
+	},
+	"publicDeleteEmployeeV3": {
+		"endpoint": "DELETE /api/v3/employees/{id}",
+		"status": "fixed",
+		"notes": [
+			"204 No Content mapped to { success: true }"
+		]
+	},
+	"publicListCostCentersV3": {
+		"endpoint": "GET /api/v3/cost-centers",
+		"status": "fixed",
+		"notes": [
+			"array query params as multi-select (generator sends them as a JSON string)",
+			"page/pageSize replaced by Return All + Limit with generic pagination",
+			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
+			"list response split into one item per record (`data`)"
+		]
+	},
+	"publicCreateCostCenterV3": {
+		"endpoint": "POST /api/v3/cost-centers",
+		"status": "fixed",
+		"notes": [
+			"nullable types (OpenAPI 3.1) collapsed",
+			"optional body fields grouped under Additional Fields (generator sends every field, even empty)"
+		]
+	},
+	"publicGetCostCenterV3": {
+		"endpoint": "GET /api/v3/cost-centers/{id}",
+		"status": "generated",
+		"notes": []
+	},
+	"publicUpdateCostCenterV3": {
+		"endpoint": "PATCH /api/v3/cost-centers/{id}",
+		"status": "fixed",
+		"notes": [
+			"nullable types (OpenAPI 3.1) collapsed",
+			"optional body fields grouped under Update Fields (generator sends every field, even empty)"
+		]
+	},
+	"publicDeleteCostCenterV3": {
+		"endpoint": "DELETE /api/v3/cost-centers/{id}",
+		"status": "fixed",
+		"notes": [
+			"nullable types (OpenAPI 3.1) collapsed",
+			"204 No Content mapped to { success: true }"
+		]
+	},
+	"publicListCompaniesV3": {
+		"endpoint": "GET /api/v3/companies",
+		"status": "fixed",
+		"notes": [
+			"page/pageSize replaced by Return All + Limit with generic pagination",
+			"list response split into one item per record (`data`)"
+		]
+	},
+	"publicGetInvoiceNfePdfV3": {
+		"endpoint": "GET /api/v3/invoices/{id}/nfe/pdf",
+		"status": "fixed",
+		"notes": [
+			"file response returned as n8n binary data (generator: JSON only)"
+		]
+	},
+	"publicGetInvoiceNfeXmlV3": {
+		"endpoint": "GET /api/v3/invoices/{id}/nfe/xml",
+		"status": "fixed",
+		"notes": [
+			"file response returned as n8n binary data (generator: JSON only)"
+		]
+	},
+	"publicGetInvoicePdfV3": {
+		"endpoint": "GET /api/v3/invoices/{id}/pdf",
+		"status": "fixed",
+		"notes": [
+			"file response returned as n8n binary data (generator: JSON only)"
+		]
+	},
+	"publicGetInvoiceV3": {
+		"endpoint": "GET /api/v3/invoices/{id}",
+		"status": "generated",
+		"notes": []
+	},
+	"publicListInvoicesV3": {
+		"endpoint": "GET /api/v3/invoices",
+		"status": "fixed",
+		"notes": [
+			"array query params as multi-select (generator sends them as a JSON string)",
+			"page/pageSize replaced by Return All + Limit with generic pagination",
+			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
+			"list response split into one item per record (`data`)"
+		]
+	},
+	"publicListInvoicePhoneAccountsV3": {
+		"endpoint": "GET /api/v3/invoices/{id}/phone-accounts",
+		"status": "fixed",
+		"notes": [
+			"page/pageSize replaced by Return All + Limit with generic pagination",
+			"list response split into one item per record (`data`)"
+		]
+	},
+	"publicArchiveAssetV3": {
+		"endpoint": "POST /api/v3/assets/{id}/archive",
+		"status": "generated",
+		"notes": []
+	},
+	"publicCreateAssetTimelineNoteV3": {
+		"endpoint": "POST /api/v3/assets/{id}/timeline-notes",
+		"status": "fixed",
+		"notes": [
+			"optional body fields grouped under Additional Fields (generator sends every field, even empty)"
+		]
+	},
+	"publicListAssetsV3": {
+		"endpoint": "GET /api/v3/assets",
+		"status": "fixed",
+		"notes": [
+			"`includeArchived` is a string in the spec; exposed as a boolean",
+			"array query params as multi-select (generator sends them as a JSON string)",
+			"array query params as comma-separated text (generator sends them as a JSON string)",
+			"page/pageSize replaced by Return All + Limit with generic pagination",
+			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
+			"list response split into one item per record (`data`)"
+		]
+	},
+	"publicCreateAssetV3": {
+		"endpoint": "POST /api/v3/assets",
+		"status": "fixed",
+		"notes": [
+			"nullable types (OpenAPI 3.1) collapsed",
+			"nested `customFields` exposed as a JSON field (generator: first level only)",
+			"optional body fields grouped under Additional Fields (generator sends every field, even empty)"
+		]
+	},
+	"publicGetAssetV3": {
+		"endpoint": "GET /api/v3/assets/{id}",
+		"status": "generated",
+		"notes": []
+	},
+	"publicUpdateAssetV3": {
+		"endpoint": "PATCH /api/v3/assets/{id}",
+		"status": "fixed",
+		"notes": [
+			"nullable types (OpenAPI 3.1) collapsed",
+			"nested `customFields` exposed as a JSON field (generator: first level only)",
+			"optional body fields grouped under Update Fields (generator sends every field, even empty)"
+		]
+	},
+	"publicDeleteAssetV3": {
+		"endpoint": "DELETE /api/v3/assets/{id}",
+		"status": "fixed",
+		"notes": [
+			"204 No Content mapped to { success: true }"
+		]
+	},
+	"publicGetAssetStatementV3": {
+		"endpoint": "GET /api/v3/asset-statements/{id}",
+		"status": "generated",
+		"notes": []
+	},
+	"publicGetAssetStatementSignedFileV3": {
+		"endpoint": "GET /api/v3/asset-statements/{id}/signed-file",
+		"status": "fixed",
+		"notes": [
+			"file response returned as n8n binary data (generator: JSON only)"
+		]
+	},
+	"publicListAssetStatementsV3": {
+		"endpoint": "GET /api/v3/asset-statements",
+		"status": "fixed",
+		"notes": [
+			"array query params as comma-separated text (generator sends them as a JSON string)",
+			"array query params as multi-select (generator sends them as a JSON string)",
+			"page/pageSize replaced by Return All + Limit with generic pagination",
+			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
+			"list response split into one item per record (`data`)"
+		]
+	},
+	"publicSendAssetStatementV3": {
+		"endpoint": "POST /api/v3/asset-statements",
+		"status": "fixed",
+		"notes": [
+			"oneOf body merged; branch-only fields shown per `type`",
+			"`assetIds` (array of IDs) as comma-separated text (generator: raw JSON field)"
+		]
+	},
+	"publicSimulateAssetStatementSignatureV3": {
+		"endpoint": "POST /api/v3/asset-statements/{id}/simulate-signature",
+		"status": "generated",
+		"notes": []
+	},
+	"publicUnarchiveAssetV3": {
+		"endpoint": "POST /api/v3/assets/{id}/unarchive",
+		"status": "generated",
+		"notes": []
+	}
+}
