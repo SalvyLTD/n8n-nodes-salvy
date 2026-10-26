@@ -1219,7 +1219,7 @@ export const properties: INodeProperties[] = [
 		description: 'Text of the note to record on the timeline',
 		type: 'string',
 		default: '',
-		placeholder: 'Equipamento trocado por conta de problemas no SSD.',
+		placeholder: 'Device replaced due to SSD issues.',
 		routing: {
 			send: {
 				type: 'body',
@@ -1255,7 +1255,7 @@ export const properties: INodeProperties[] = [
 				description: "Name of the note's author",
 				type: 'string',
 				default: '',
-				placeholder: 'João da Silva',
+				placeholder: 'John Smith',
 				routing: {
 					send: {
 						type: 'body',
@@ -1766,7 +1766,7 @@ export const properties: INodeProperties[] = [
 				description: 'Where the asset is allocated',
 				type: 'string',
 				default: '',
-				placeholder: 'Sala do RH',
+				placeholder: 'HR Room',
 				routing: {
 					send: {
 						type: 'body',
@@ -2077,7 +2077,7 @@ export const properties: INodeProperties[] = [
 				description: 'Where the asset is allocated',
 				type: 'string',
 				default: '',
-				placeholder: 'Sala do RH',
+				placeholder: 'HR Room',
 				routing: {
 					send: {
 						type: 'body',
@@ -3045,7 +3045,7 @@ export const properties: INodeProperties[] = [
 		description: 'Cost center name',
 		type: 'string',
 		default: '',
-		placeholder: 'Engenharia',
+		placeholder: 'Engineering',
 		routing: {
 			send: {
 				type: 'body',
@@ -3271,7 +3271,7 @@ export const properties: INodeProperties[] = [
 				description: 'Cost center name',
 				type: 'string',
 				default: '',
-				placeholder: 'Engenharia',
+				placeholder: 'Engineering',
 				routing: {
 					send: {
 						type: 'body',
@@ -3766,7 +3766,7 @@ export const properties: INodeProperties[] = [
 		name: 'fullName',
 		type: 'string',
 		default: '',
-		placeholder: 'João da Silva',
+		placeholder: 'John Smith',
 		routing: {
 			send: {
 				type: 'body',
@@ -3984,7 +3984,7 @@ export const properties: INodeProperties[] = [
 				description: 'Department',
 				type: 'string',
 				default: '',
-				placeholder: 'Engenharia',
+				placeholder: 'Engineering',
 				routing: {
 					send: {
 						type: 'body',
@@ -4064,7 +4064,7 @@ export const properties: INodeProperties[] = [
 				description: "Manager's full name",
 				type: 'string',
 				default: '',
-				placeholder: 'Maria dos Santos',
+				placeholder: 'Mary Johnson',
 				routing: {
 					send: {
 						type: 'body',
@@ -4079,7 +4079,7 @@ export const properties: INodeProperties[] = [
 				name: 'personalEmail',
 				type: 'string',
 				default: '',
-				placeholder: 'joaos04@gmail.com',
+				placeholder: 'johnsmith04@gmail.com',
 				routing: {
 					send: {
 						type: 'body',
@@ -4110,7 +4110,7 @@ export const properties: INodeProperties[] = [
 				description: 'Job title',
 				type: 'string',
 				default: '',
-				placeholder: 'Desenvolvedor',
+				placeholder: 'Developer',
 				routing: {
 					send: {
 						type: 'body',
@@ -4125,7 +4125,7 @@ export const properties: INodeProperties[] = [
 				name: 'socialName',
 				type: 'string',
 				default: '',
-				placeholder: 'João',
+				placeholder: 'John',
 				routing: {
 					send: {
 						type: 'body',
@@ -4156,7 +4156,7 @@ export const properties: INodeProperties[] = [
 				name: 'workEmail',
 				type: 'string',
 				default: '',
-				placeholder: 'joaosilva@empresa.com.br',
+				placeholder: 'john.smith@company.com',
 				routing: {
 					send: {
 						type: 'body',
@@ -4376,7 +4376,7 @@ export const properties: INodeProperties[] = [
 				description: 'Department',
 				type: 'string',
 				default: '',
-				placeholder: 'Engenharia',
+				placeholder: 'Engineering',
 				routing: {
 					send: {
 						type: 'body',
@@ -4440,7 +4440,7 @@ export const properties: INodeProperties[] = [
 				name: 'fullName',
 				type: 'string',
 				default: '',
-				placeholder: 'João da Silva',
+				placeholder: 'John Smith',
 				routing: {
 					send: {
 						type: 'body',
@@ -4456,7 +4456,7 @@ export const properties: INodeProperties[] = [
 				description: "Manager's full name",
 				type: 'string',
 				default: '',
-				placeholder: 'Maria dos Santos',
+				placeholder: 'Mary Johnson',
 				routing: {
 					send: {
 						type: 'body',
@@ -4471,7 +4471,7 @@ export const properties: INodeProperties[] = [
 				name: 'personalEmail',
 				type: 'string',
 				default: '',
-				placeholder: 'joaos04@gmail.com',
+				placeholder: 'johnsmith04@gmail.com',
 				routing: {
 					send: {
 						type: 'body',
@@ -4502,7 +4502,7 @@ export const properties: INodeProperties[] = [
 				description: 'Job title',
 				type: 'string',
 				default: '',
-				placeholder: 'Desenvolvedor',
+				placeholder: 'Developer',
 				routing: {
 					send: {
 						type: 'body',
@@ -4517,7 +4517,7 @@ export const properties: INodeProperties[] = [
 				name: 'socialName',
 				type: 'string',
 				default: '',
-				placeholder: 'João',
+				placeholder: 'John',
 				routing: {
 					send: {
 						type: 'body',
@@ -4577,7 +4577,7 @@ export const properties: INodeProperties[] = [
 				name: 'workEmail',
 				type: 'string',
 				default: '',
-				placeholder: 'joaosilva@empresa.com.br',
+				placeholder: 'john.smith@company.com',
 				routing: {
 					send: {
 						type: 'body',
@@ -5285,7 +5285,7 @@ export const properties: INodeProperties[] = [
 				description: 'Reason details. Required when Reason is Other.',
 				type: 'string',
 				default: '',
-				placeholder: 'Perda de acesso ao aparelho',
+				placeholder: 'Lost access to the device',
 				routing: {
 					send: {
 						type: 'body',
@@ -5386,7 +5386,7 @@ export const properties: INodeProperties[] = [
 				description: 'Reason details. Required when Reason is Other. Maximum of 248 characters.',
 				type: 'string',
 				default: '',
-				placeholder: 'Cliente encerrou as atividades da filial',
+				placeholder: 'Customer closed the branch',
 				routing: {
 					send: {
 						type: 'body',
@@ -5546,7 +5546,7 @@ export const properties: INodeProperties[] = [
 				description: 'Phone account name, set by you to make management easier',
 				type: 'string',
 				default: '',
-				placeholder: 'Maria - Vendas',
+				placeholder: 'Mary - Sales',
 				routing: {
 					send: {
 						type: 'body',
@@ -5768,7 +5768,7 @@ export const properties: INodeProperties[] = [
 				description: 'Phone account name, set by you to make management easier',
 				type: 'string',
 				default: '',
-				placeholder: 'Maria - Vendas',
+				placeholder: 'Mary - Sales',
 				routing: {
 					send: {
 						type: 'body',
@@ -5905,7 +5905,7 @@ export const properties: INodeProperties[] = [
 				description: 'Phone account name, set by you to make management easier',
 				type: 'string',
 				default: '',
-				placeholder: 'Maria - Vendas',
+				placeholder: 'Mary - Sales',
 				routing: {
 					send: {
 						type: 'body',
@@ -6683,7 +6683,7 @@ export const properties: INodeProperties[] = [
 		description: 'Content of the simulated SMS, up to 160 characters',
 		type: 'string',
 		default: '',
-		placeholder: 'Seu codigo de verificação e 123456',
+		placeholder: 'Your verification code is 123456',
 		routing: {
 			send: {
 				type: 'body',
@@ -6856,7 +6856,7 @@ export const properties: INodeProperties[] = [
 			'Group name. Unique within the company, ignoring case and accents: "Sales SP" and "sales sp" are the same group.',
 		type: 'string',
 		default: '',
-		placeholder: 'Vendas SP',
+		placeholder: 'Sales NY',
 		routing: {
 			send: {
 				type: 'body',
@@ -7033,7 +7033,7 @@ export const properties: INodeProperties[] = [
 					"Group name. Must not repeat another group's name in the company, ignoring case and accents.",
 				type: 'string',
 				default: '',
-				placeholder: 'Vendas SP',
+				placeholder: 'Sales NY',
 				routing: {
 					send: {
 						type: 'body',

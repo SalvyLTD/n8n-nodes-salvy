@@ -46,6 +46,8 @@ const README_PATH = join(root, 'README.md');
 const DESCRIPTIONS_EN = JSON.parse(
 	readFileSync(join(root, 'scripts/i18n/descriptions.en.json'), 'utf8'),
 );
+const exampleEn = JSON.parse(readFileSync(join(root, 'scripts/i18n/examples.en.json'), 'utf8'));
+const englishExample = (value) => exampleEn[String(value)] ?? String(value);
 
 const spec = JSON.parse(readFileSync(SPEC_PATH, 'utf8'));
 const METHODS = ['get', 'post', 'put', 'patch', 'delete'];
@@ -341,7 +343,7 @@ function buildQueryField(opId, param) {
 		...base,
 		type: 'string',
 		default: '',
-		placeholder: schema.example !== undefined ? String(schema.example) : undefined,
+		placeholder: schema.example !== undefined ? englishExample(schema.example) : undefined,
 		routing: send('={{ $value }}'),
 	};
 }
@@ -402,7 +404,9 @@ function buildBodyField(opId, key, prop, generatedField, cfg) {
 		type: 'string',
 		default: '',
 		placeholder:
-			prop.example !== undefined && prop.example !== null ? String(prop.example) : undefined,
+			prop.example !== undefined && prop.example !== null
+				? englishExample(prop.example)
+				: undefined,
 		routing: send(nullable ? NULLABLE_VALUE : '={{ $value }}'),
 	};
 }
