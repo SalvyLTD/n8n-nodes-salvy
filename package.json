@@ -1,6 +1,6 @@
 {
 	"name": "@salvyltd/n8n-nodes-salvy",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "n8n community node for the Salvy public API: phone accounts, employees, cost centers, assets and invoices",
 	"license": "MIT",
 	"homepage": "https://github.com/SalvyLTD/n8n-nodes-salvy",
