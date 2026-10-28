@@ -268,6 +268,8 @@ const enumOptions = (values) =>
 		.map((value) => ({ name: value === '__null__' ? 'Not Set' : startCase(value), value }))
 		.sort((a, b) => a.name.localeCompare(b.name));
 
+/** Expression source: whether `v` is a Return All that is really on (true or "true"). */
+const isTrue = (v) => `(${v} === true || ${v} === "true")`;
 const NULLABLE_VALUE = '={{ $value === "" ? null : $value }}';
 const SPLIT_VALUE = '={{ String($value).split(",").map((v) => v.trim()).filter((v) => v) }}';
 const JSON_VALUE = '={{ typeof $value === "string" ? JSON.parse($value) : $value }}';
@@ -593,7 +595,7 @@ for (const resource of Object.keys(RESOURCES)) {
 		if (paginated) {
 			fix(
 				opId,
-				'page/pageSize replaced by Return All + Limit; Return All re-sends every query param on each page (generic pagination replaces `qs`)',
+				'page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)',
 			);
 			fieldsOut.push(
 				{
@@ -604,7 +606,14 @@ for (const resource of Object.keys(RESOURCES)) {
 					description: 'Whether to return all results or only up to a given limit',
 					displayOptions: { show },
 					routing: {
-						send: { paginate: '={{ $value }}', type: 'query', property: 'pageSize', value: '200' },
+						// Return All owns page and pageSize for both modes. When Return All is an
+						// expression (AI tool, expression mode) n8n also shows Limit, so Limit must
+						// not route anything itself; and only a real true may turn pagination on
+						// (n8n coerces `paginate` with `!!`, so the string "false" would).
+						send: { paginate: `={{ ${isTrue('$value')} }}` },
+						request: {
+							qs: { page: 1, pageSize: `={{ ${isTrue('$value')} ? 200 : $parameter.limit }}` },
+						},
 						operations: {
 							pagination: {
 								type: 'generic',
@@ -635,10 +644,6 @@ for (const resource of Object.keys(RESOURCES)) {
 					default: 50,
 					description: 'Max number of results to return',
 					displayOptions: { show: { ...show, returnAll: [false] } },
-					routing: {
-						request: { qs: { page: 1, pageSize: '={{ $value }}' } },
-						output: { maxResults: '={{ $value }}' },
-					},
 				},
 			);
 		}

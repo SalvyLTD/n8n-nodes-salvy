@@ -1281,10 +1281,13 @@ export const properties: INodeProperties[] = [
 		},
 		routing: {
 			send: {
-				paginate: '={{ $value }}',
-				type: 'query',
-				property: 'pageSize',
-				value: '200',
+				paginate: '={{ ($value === true || $value === "true") }}',
+			},
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ ($value === true || $value === "true") ? 200 : $parameter.limit }}',
+				},
 			},
 			operations: {
 				pagination: {
@@ -1328,17 +1331,6 @@ export const properties: INodeProperties[] = [
 				resource: ['asset'],
 				operation: ['getAll'],
 				returnAll: [false],
-			},
-		},
-		routing: {
-			request: {
-				qs: {
-					page: 1,
-					pageSize: '={{ $value }}',
-				},
-			},
-			output: {
-				maxResults: '={{ $value }}',
 			},
 		},
 	},
@@ -2550,10 +2542,13 @@ export const properties: INodeProperties[] = [
 		},
 		routing: {
 			send: {
-				paginate: '={{ $value }}',
-				type: 'query',
-				property: 'pageSize',
-				value: '200',
+				paginate: '={{ ($value === true || $value === "true") }}',
+			},
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ ($value === true || $value === "true") ? 200 : $parameter.limit }}',
+				},
 			},
 			operations: {
 				pagination: {
@@ -2590,17 +2585,6 @@ export const properties: INodeProperties[] = [
 				resource: ['assetStatement'],
 				operation: ['getAll'],
 				returnAll: [false],
-			},
-		},
-		routing: {
-			request: {
-				qs: {
-					page: 1,
-					pageSize: '={{ $value }}',
-				},
-			},
-			output: {
-				maxResults: '={{ $value }}',
 			},
 		},
 	},
@@ -2885,10 +2869,13 @@ export const properties: INodeProperties[] = [
 		},
 		routing: {
 			send: {
-				paginate: '={{ $value }}',
-				type: 'query',
-				property: 'pageSize',
-				value: '200',
+				paginate: '={{ ($value === true || $value === "true") }}',
+			},
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ ($value === true || $value === "true") ? 200 : $parameter.limit }}',
+				},
 			},
 			operations: {
 				pagination: {
@@ -2924,17 +2911,6 @@ export const properties: INodeProperties[] = [
 				returnAll: [false],
 			},
 		},
-		routing: {
-			request: {
-				qs: {
-					page: 1,
-					pageSize: '={{ $value }}',
-				},
-			},
-			output: {
-				maxResults: '={{ $value }}',
-			},
-		},
 	},
 	{
 		displayName: 'Return All',
@@ -2950,10 +2926,13 @@ export const properties: INodeProperties[] = [
 		},
 		routing: {
 			send: {
-				paginate: '={{ $value }}',
-				type: 'query',
-				property: 'pageSize',
-				value: '200',
+				paginate: '={{ ($value === true || $value === "true") }}',
+			},
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ ($value === true || $value === "true") ? 200 : $parameter.limit }}',
+				},
 			},
 			operations: {
 				pagination: {
@@ -2988,17 +2967,6 @@ export const properties: INodeProperties[] = [
 				resource: ['costCenter'],
 				operation: ['getAll'],
 				returnAll: [false],
-			},
-		},
-		routing: {
-			request: {
-				qs: {
-					page: 1,
-					pageSize: '={{ $value }}',
-				},
-			},
-			output: {
-				maxResults: '={{ $value }}',
 			},
 		},
 	},
@@ -3497,10 +3465,13 @@ export const properties: INodeProperties[] = [
 		},
 		routing: {
 			send: {
-				paginate: '={{ $value }}',
-				type: 'query',
-				property: 'pageSize',
-				value: '200',
+				paginate: '={{ ($value === true || $value === "true") }}',
+			},
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ ($value === true || $value === "true") ? 200 : $parameter.limit }}',
+				},
 			},
 			operations: {
 				pagination: {
@@ -3543,17 +3514,6 @@ export const properties: INodeProperties[] = [
 				resource: ['employee'],
 				operation: ['getAll'],
 				returnAll: [false],
-			},
-		},
-		routing: {
-			request: {
-				qs: {
-					page: 1,
-					pageSize: '={{ $value }}',
-				},
-			},
-			output: {
-				maxResults: '={{ $value }}',
 			},
 		},
 	},
@@ -4768,10 +4728,13 @@ export const properties: INodeProperties[] = [
 		},
 		routing: {
 			send: {
-				paginate: '={{ $value }}',
-				type: 'query',
-				property: 'pageSize',
-				value: '200',
+				paginate: '={{ ($value === true || $value === "true") }}',
+			},
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ ($value === true || $value === "true") ? 200 : $parameter.limit }}',
+				},
 			},
 			operations: {
 				pagination: {
@@ -4812,17 +4775,6 @@ export const properties: INodeProperties[] = [
 				resource: ['invoice'],
 				operation: ['getAll'],
 				returnAll: [false],
-			},
-		},
-		routing: {
-			request: {
-				qs: {
-					page: 1,
-					pageSize: '={{ $value }}',
-				},
-			},
-			output: {
-				maxResults: '={{ $value }}',
 			},
 		},
 	},
@@ -5070,10 +5022,13 @@ export const properties: INodeProperties[] = [
 		},
 		routing: {
 			send: {
-				paginate: '={{ $value }}',
-				type: 'query',
-				property: 'pageSize',
-				value: '200',
+				paginate: '={{ ($value === true || $value === "true") }}',
+			},
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ ($value === true || $value === "true") ? 200 : $parameter.limit }}',
+				},
 			},
 			operations: {
 				pagination: {
@@ -5107,17 +5062,6 @@ export const properties: INodeProperties[] = [
 				resource: ['invoice'],
 				operation: ['getPhoneAccounts'],
 				returnAll: [false],
-			},
-		},
-		routing: {
-			request: {
-				qs: {
-					page: 1,
-					pageSize: '={{ $value }}',
-				},
-			},
-			output: {
-				maxResults: '={{ $value }}',
 			},
 		},
 	},
@@ -5996,10 +5940,13 @@ export const properties: INodeProperties[] = [
 		},
 		routing: {
 			send: {
-				paginate: '={{ $value }}',
-				type: 'query',
-				property: 'pageSize',
-				value: '200',
+				paginate: '={{ ($value === true || $value === "true") }}',
+			},
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ ($value === true || $value === "true") ? 200 : $parameter.limit }}',
+				},
 			},
 			operations: {
 				pagination: {
@@ -6036,17 +5983,6 @@ export const properties: INodeProperties[] = [
 				resource: ['phoneAccount'],
 				operation: ['getSmsMessages'],
 				returnAll: [false],
-			},
-		},
-		routing: {
-			request: {
-				qs: {
-					page: 1,
-					pageSize: '={{ $value }}',
-				},
-			},
-			output: {
-				maxResults: '={{ $value }}',
 			},
 		},
 	},
@@ -6369,10 +6305,13 @@ export const properties: INodeProperties[] = [
 		},
 		routing: {
 			send: {
-				paginate: '={{ $value }}',
-				type: 'query',
-				property: 'pageSize',
-				value: '200',
+				paginate: '={{ ($value === true || $value === "true") }}',
+			},
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ ($value === true || $value === "true") ? 200 : $parameter.limit }}',
+				},
 			},
 			operations: {
 				pagination: {
@@ -6419,17 +6358,6 @@ export const properties: INodeProperties[] = [
 				resource: ['phoneAccount'],
 				operation: ['getAll'],
 				returnAll: [false],
-			},
-		},
-		routing: {
-			request: {
-				qs: {
-					page: 1,
-					pageSize: '={{ $value }}',
-				},
-			},
-			output: {
-				maxResults: '={{ $value }}',
 			},
 		},
 	},
@@ -6874,10 +6802,13 @@ export const properties: INodeProperties[] = [
 		},
 		routing: {
 			send: {
-				paginate: '={{ $value }}',
-				type: 'query',
-				property: 'pageSize',
-				value: '200',
+				paginate: '={{ ($value === true || $value === "true") }}',
+			},
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ ($value === true || $value === "true") ? 200 : $parameter.limit }}',
+				},
 			},
 			operations: {
 				pagination: {
@@ -6911,17 +6842,6 @@ export const properties: INodeProperties[] = [
 				resource: ['phoneAccountGroup'],
 				operation: ['getAll'],
 				returnAll: [false],
-			},
-		},
-		routing: {
-			request: {
-				qs: {
-					page: 1,
-					pageSize: '={{ $value }}',
-				},
-			},
-			output: {
-				maxResults: '={{ $value }}',
 			},
 		},
 	},
@@ -7191,10 +7111,13 @@ export const properties: INodeProperties[] = [
 		},
 		routing: {
 			send: {
-				paginate: '={{ $value }}',
-				type: 'query',
-				property: 'pageSize',
-				value: '200',
+				paginate: '={{ ($value === true || $value === "true") }}',
+			},
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ ($value === true || $value === "true") ? 200 : $parameter.limit }}',
+				},
 			},
 			operations: {
 				pagination: {
@@ -7229,17 +7152,6 @@ export const properties: INodeProperties[] = [
 				resource: ['task'],
 				operation: ['getResults'],
 				returnAll: [false],
-			},
-		},
-		routing: {
-			request: {
-				qs: {
-					page: 1,
-					pageSize: '={{ $value }}',
-				},
-			},
-			output: {
-				maxResults: '={{ $value }}',
 			},
 		},
 	},

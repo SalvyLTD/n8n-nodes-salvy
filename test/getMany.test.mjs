@@ -62,3 +62,54 @@ describe('Return All carries the filters onto every page', () => {
 		});
 	}
 });
+
+describe('Limit sends page exactly once and never paginates', () => {
+	const filters = { productType: ['mobile'], status: ['active'] };
+	// The AI-tool variant and expression mode set Return All through an
+	// expression; n8n then shows Limit too, so both fields' routing applies.
+	const limitModes = [
+		['a literal false', false, 2],
+		['an expression resolving to false', '={{ false }}', 2],
+		['an expression resolving to the string "false"', '={{ "false" }}', 2],
+		['an expression, with Limit also an expression', '={{ false }}', '={{ 3 }}'],
+	];
+	for (const [label, returnAll, limit] of limitModes) {
+		test(`Return All as ${label}`, async () => {
+			api.setTotal(450);
+			const items = await runSalvy(api.baseUrl, {
+				resource: 'phoneAccount',
+				operation: 'getAll',
+				returnAll,
+				limit,
+				filters,
+			});
+			const expected = typeof limit === 'number' ? limit : 3;
+			assert.equal(api.requests.length, 1, 'one request');
+			const [request] = api.requests;
+			assert.deepEqual(queryValues(request, 'page'), ['1']);
+			assert.deepEqual(queryValues(request, 'pageSize'), [String(expected)]);
+			assert.deepEqual(queryValues(request, 'productType'), ['mobile']);
+			assert.deepEqual(queryValues(request, 'status'), ['active']);
+			assert.equal(items.length, expected);
+		});
+	}
+
+	for (const returnAll of ['={{ true }}', '={{ "true" }}']) {
+		test(`Return All as an expression (${returnAll}) pages with pageSize 200 and is not capped by Limit`, async () => {
+			api.setTotal(450);
+			const items = await runSalvy(api.baseUrl, {
+				resource: 'phoneAccount',
+				operation: 'getAll',
+				returnAll,
+				filters,
+			});
+			assert.equal(items.length, 450);
+			assert.equal(api.requests.length, 3);
+			api.requests.forEach((request, i) => {
+				assert.deepEqual(queryValues(request, 'page'), [String(i + 1)]);
+				assert.deepEqual(queryValues(request, 'pageSize'), ['200']);
+				assert.deepEqual(queryValues(request, 'productType'), ['mobile']);
+			});
+		});
+	}
+});
