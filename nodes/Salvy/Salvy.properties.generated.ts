@@ -156,7 +156,7 @@ export const properties: INodeProperties[] = [
 									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
 								properties: {
 									value:
-										'={{ { data: $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) } }}',
+										'={{ { data: $response.body.data.length ? $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) : [{ totalCount: $response.body.pagination.totalCount }] } }}',
 								},
 							},
 							{
@@ -272,7 +272,7 @@ export const properties: INodeProperties[] = [
 									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
 								properties: {
 									value:
-										'={{ { data: $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) } }}',
+										'={{ { data: $response.body.data.length ? $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) : [{ totalCount: $response.body.pagination.totalCount }] } }}',
 								},
 							},
 							{
@@ -381,7 +381,7 @@ export const properties: INodeProperties[] = [
 									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
 								properties: {
 									value:
-										'={{ { data: $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) } }}',
+										'={{ { data: $response.body.data.length ? $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) : [{ totalCount: $response.body.pagination.totalCount }] } }}',
 								},
 							},
 							{
@@ -473,7 +473,7 @@ export const properties: INodeProperties[] = [
 									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
 								properties: {
 									value:
-										'={{ { data: $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) } }}',
+										'={{ { data: $response.body.data.length ? $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) : [{ totalCount: $response.body.pagination.totalCount }] } }}',
 								},
 							},
 							{
@@ -590,7 +590,7 @@ export const properties: INodeProperties[] = [
 									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
 								properties: {
 									value:
-										'={{ { data: $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) } }}',
+										'={{ { data: $response.body.data.length ? $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) : [{ totalCount: $response.body.pagination.totalCount }] } }}',
 								},
 							},
 							{
@@ -760,7 +760,7 @@ export const properties: INodeProperties[] = [
 									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
 								properties: {
 									value:
-										'={{ { data: $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) } }}',
+										'={{ { data: $response.body.data.length ? $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) : [{ totalCount: $response.body.pagination.totalCount }] } }}',
 								},
 							},
 							{
@@ -792,7 +792,7 @@ export const properties: INodeProperties[] = [
 									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
 								properties: {
 									value:
-										'={{ { data: $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) } }}',
+										'={{ { data: $response.body.data.length ? $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) : [{ totalCount: $response.body.pagination.totalCount }] } }}',
 								},
 							},
 							{
@@ -952,7 +952,7 @@ export const properties: INodeProperties[] = [
 									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
 								properties: {
 									value:
-										'={{ { data: $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) } }}',
+										'={{ { data: $response.body.data.length ? $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) : [{ totalCount: $response.body.pagination.totalCount }] } }}',
 								},
 							},
 							{
@@ -984,7 +984,7 @@ export const properties: INodeProperties[] = [
 									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
 								properties: {
 									value:
-										'={{ { data: $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) } }}',
+										'={{ { data: $response.body.data.length ? $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) : [{ totalCount: $response.body.pagination.totalCount }] } }}',
 								},
 							},
 							{
@@ -1149,7 +1149,7 @@ export const properties: INodeProperties[] = [
 									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
 								properties: {
 									value:
-										'={{ { data: $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) } }}',
+										'={{ { data: $response.body.data.length ? $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) : [{ totalCount: $response.body.pagination.totalCount }] } }}',
 								},
 							},
 							{
@@ -1268,7 +1268,7 @@ export const properties: INodeProperties[] = [
 									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
 								properties: {
 									value:
-										'={{ { data: $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) } }}',
+										'={{ { data: $response.body.data.length ? $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) : [{ totalCount: $response.body.pagination.totalCount }] } }}',
 								},
 							},
 							{

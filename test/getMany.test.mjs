@@ -253,14 +253,14 @@ describe('Limit mode exposes pagination.totalCount', () => {
 		);
 	});
 
-	test('Limit with no matches outputs no items', async () => {
+	test('Limit with no matches outputs a single item with totalCount 0', async () => {
 		api.setTotal(0);
 		const items = await runSalvy(api.baseUrl, {
 			resource: 'phoneAccount',
 			operation: 'getAll',
 			limit: 1,
 		});
-		assert.deepEqual(items, []);
+		assert.deepEqual(items, [{ totalCount: 0 }]);
 	});
 
 	for (const returnAll of [true, '={{ true }}']) {

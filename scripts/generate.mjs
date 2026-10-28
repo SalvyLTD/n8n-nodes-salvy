@@ -756,6 +756,7 @@ for (const resource of Object.keys(RESOURCES)) {
 			if (paginated) {
 				// Limit mode keeps the total: each record gets `totalCount` from the
 				// response's pagination block, so "how many" is a single Limit 1 call.
+				// An empty page still outputs one { totalCount } item, so a count of 0 is an answer.
 				// Return All is unchanged (its records already are the whole set).
 				fix(opId, 'Limit mode adds `pagination.totalCount` to each record as `totalCount`');
 				postReceive.push({
@@ -763,7 +764,7 @@ for (const resource of Object.keys(RESOURCES)) {
 					enabled: `={{ !${isTrue('$parameter.returnAll')} }}`,
 					properties: {
 						value:
-							'={{ { data: $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) } }}',
+							'={{ { data: $response.body.data.length ? $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) : [{ totalCount: $response.body.pagination.totalCount }] } }}',
 					},
 				});
 			}
