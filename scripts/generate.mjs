@@ -273,6 +273,23 @@ const isTrue = (v) => `(${v} === true || ${v} === "true")`;
 const NULLABLE_VALUE = '={{ $value === "" ? null : $value }}';
 const SPLIT_VALUE = '={{ String($value).split(",").map((v) => v.trim()).filter((v) => v) }}';
 const JSON_VALUE = '={{ typeof $value === "string" ? JSON.parse($value) : $value }}';
+// Multi-selects get an array from the UI, but a string from an expression or the
+// AI tool ($fromAI passes multi-selects as text): accept both.
+const MULTI_VALUE =
+	'={{ (Array.isArray($value) ? $value : String($value).split(",")).map((v) => String(v).trim()).filter((v) => v) }}';
+
+/**
+ * Enum fields list their raw API values in the description: display names differ
+ * from the values, and expressions / $fromAI descriptions need the values.
+ */
+function withEnumValues(opId, description, values, multi) {
+	fix(opId, 'enum fields list their API values in the description');
+	const list = values.map((v) => `\`${v}\``).join(', ');
+	const note = multi
+		? `Values: ${list}. In an expression, use an array or a comma-separated list.`
+		: `Values: ${list}.`;
+	return description ? `${description.replace(/\.?$/, '.')} ${note}` : note;
+}
 
 /** Item schema of an array query param: { enumValues?, allowsNull } */
 function arrayItemInfo(items) {
@@ -299,12 +316,14 @@ function buildQueryField(opId, param) {
 		const { enumValues, allowsNull } = arrayItemInfo(schema.items);
 		if (enumValues) {
 			fix(opId, 'array query params as multi-select (generator sends them as a JSON string)');
+			const values = allowsNull ? [...enumValues, '__null__'] : enumValues;
 			return {
 				...base,
+				description: withEnumValues(opId, description, values, true),
 				type: 'multiOptions',
-				options: enumOptions(allowsNull ? [...enumValues, '__null__'] : enumValues),
+				options: enumOptions(values),
 				default: [],
-				routing: send('={{ $value }}'),
+				routing: send(MULTI_VALUE),
 			};
 		}
 		fix(opId, 'array query params as comma-separated text (generator sends them as a JSON string)');
@@ -319,6 +338,7 @@ function buildQueryField(opId, param) {
 	if (schema.enum) {
 		return {
 			...base,
+			description: withEnumValues(opId, description, schema.enum, false),
 			type: 'options',
 			options: enumOptions(schema.enum),
 			default: schema.default ?? schema.enum[0],
@@ -381,6 +401,7 @@ function buildBodyField(opId, key, prop, generatedField, cfg) {
 	if (prop.enum) {
 		return {
 			...base,
+			description: withEnumValues(opId, description, prop.enum, false),
 			type: 'options',
 			options: enumOptions(prop.enum),
 			default: prop.default ?? prop.enum[0],
@@ -570,6 +591,10 @@ for (const resource of Object.keys(RESOURCES)) {
 			const f = [...top, ...additional, ...filters].find((t) => t.name === name);
 			if (!f) throw new Error(`${opId}: override for unknown field ${name}`);
 			Object.assign(f, override);
+			if (override.description && ['options', 'multiOptions'].includes(f.type)) {
+				const values = f.options.map((o) => o.value);
+				f.description = withEnumValues(opId, override.description, values, f.type !== 'options');
+			}
 		}
 
 		for (const f of top) {

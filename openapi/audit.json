@@ -9,6 +9,7 @@
 		"status": "fixed",
 		"notes": [
 			"array query params as multi-select (generator sends them as a JSON string)",
+			"enum fields list their API values in the description",
 			"page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
 			"response is a oneOf union keyed by `type`; items are passed through as-is (the generator does not read responses)",
@@ -26,6 +27,7 @@
 		"endpoint": "GET /api/v3/area-codes",
 		"status": "fixed",
 		"notes": [
+			"enum fields list their API values in the description",
 			"not paginated (no `pagination` in the response): no Return All/Limit",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
 			"list response split into one item per record (`data`)"
@@ -56,6 +58,7 @@
 		"endpoint": "POST /api/v3/phone-account-groups",
 		"status": "fixed",
 		"notes": [
+			"enum fields list their API values in the description",
 			"optional body fields grouped under Additional Fields (generator sends every field, even empty)"
 		]
 	},
@@ -68,6 +71,7 @@
 		"endpoint": "PATCH /api/v3/phone-account-groups/{id}",
 		"status": "fixed",
 		"notes": [
+			"enum fields list their API values in the description",
 			"optional body fields grouped under Update Fields (generator sends every field, even empty)"
 		]
 	},
@@ -97,6 +101,7 @@
 		"endpoint": "POST /api/v3/phone-accounts/{id}/block",
 		"status": "fixed",
 		"notes": [
+			"enum fields list their API values in the description",
 			"optional body fields grouped under Additional Fields (generator sends every field, even empty)"
 		]
 	},
@@ -104,6 +109,7 @@
 		"endpoint": "POST /api/v3/phone-accounts/{id}/cancel",
 		"status": "fixed",
 		"notes": [
+			"enum fields list their API values in the description",
 			"optional body fields grouped under Additional Fields (generator sends every field, even empty)"
 		]
 	},
@@ -122,6 +128,7 @@
 		"notes": [
 			"oneOf body merged; branch-only fields shown per `simType`",
 			"nullable types (OpenAPI 3.1) collapsed",
+			"enum fields list their API values in the description",
 			"nested `customFields` exposed as a JSON field (generator: first level only)",
 			"optional body fields grouped under Additional Fields (generator sends every field, even empty)"
 		]
@@ -155,6 +162,7 @@
 		"status": "fixed",
 		"notes": [
 			"array query params as multi-select (generator sends them as a JSON string)",
+			"enum fields list their API values in the description",
 			"page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
 			"list response split into one item per record (`data`)"
@@ -165,6 +173,7 @@
 		"status": "fixed",
 		"notes": [
 			"array query params as multi-select (generator sends them as a JSON string)",
+			"enum fields list their API values in the description",
 			"array query params as comma-separated text (generator sends them as a JSON string)",
 			"page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
@@ -205,6 +214,7 @@
 		"status": "fixed",
 		"notes": [
 			"array query params as multi-select (generator sends them as a JSON string)",
+			"enum fields list their API values in the description",
 			"page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
 			"list response split into one item per record (`data`)"
@@ -214,6 +224,7 @@
 		"endpoint": "POST /api/v3/employees",
 		"status": "fixed",
 		"notes": [
+			"enum fields list their API values in the description",
 			"nested `address` hand-written as a collection (generator: first level only)",
 			"optional body fields grouped under Additional Fields (generator sends every field, even empty)"
 		]
@@ -228,6 +239,7 @@
 		"status": "fixed",
 		"notes": [
 			"nullable types (OpenAPI 3.1) collapsed",
+			"enum fields list their API values in the description",
 			"nested `address` hand-written as a collection (generator: first level only)",
 			"optional body fields grouped under Update Fields (generator sends every field, even empty)"
 		]
@@ -244,6 +256,7 @@
 		"status": "fixed",
 		"notes": [
 			"array query params as multi-select (generator sends them as a JSON string)",
+			"enum fields list their API values in the description",
 			"page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
 			"list response split into one item per record (`data`)"
@@ -254,6 +267,7 @@
 		"status": "fixed",
 		"notes": [
 			"nullable types (OpenAPI 3.1) collapsed",
+			"enum fields list their API values in the description",
 			"optional body fields grouped under Additional Fields (generator sends every field, even empty)"
 		]
 	},
@@ -267,6 +281,7 @@
 		"status": "fixed",
 		"notes": [
 			"nullable types (OpenAPI 3.1) collapsed",
+			"enum fields list their API values in the description",
 			"optional body fields grouped under Update Fields (generator sends every field, even empty)"
 		]
 	},
@@ -317,6 +332,7 @@
 		"status": "fixed",
 		"notes": [
 			"array query params as multi-select (generator sends them as a JSON string)",
+			"enum fields list their API values in the description",
 			"page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
 			"list response split into one item per record (`data`)"
@@ -348,6 +364,7 @@
 		"notes": [
 			"`includeArchived` is a string in the spec; exposed as a boolean",
 			"array query params as multi-select (generator sends them as a JSON string)",
+			"enum fields list their API values in the description",
 			"array query params as comma-separated text (generator sends them as a JSON string)",
 			"page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
@@ -359,6 +376,7 @@
 		"status": "fixed",
 		"notes": [
 			"nullable types (OpenAPI 3.1) collapsed",
+			"enum fields list their API values in the description",
 			"nested `customFields` exposed as a JSON field (generator: first level only)",
 			"optional body fields grouped under Additional Fields (generator sends every field, even empty)"
 		]
@@ -373,6 +391,7 @@
 		"status": "fixed",
 		"notes": [
 			"nullable types (OpenAPI 3.1) collapsed",
+			"enum fields list their API values in the description",
 			"nested `customFields` exposed as a JSON field (generator: first level only)",
 			"optional body fields grouped under Update Fields (generator sends every field, even empty)"
 		]
@@ -402,6 +421,7 @@
 		"notes": [
 			"array query params as comma-separated text (generator sends them as a JSON string)",
 			"array query params as multi-select (generator sends them as a JSON string)",
+			"enum fields list their API values in the description",
 			"page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
 			"list response split into one item per record (`data`)"
@@ -412,6 +432,7 @@
 		"status": "fixed",
 		"notes": [
 			"oneOf body merged; branch-only fields shown per `type`",
+			"enum fields list their API values in the description",
 			"`assetIds` (array of IDs) as comma-separated text (generator: raw JSON field)"
 		]
 	},
@@ -422,7 +443,9 @@
 	},
 	"publicUnarchiveAssetV3": {
 		"endpoint": "POST /api/v3/assets/{id}/unarchive",
-		"status": "generated",
-		"notes": []
+		"status": "fixed",
+		"notes": [
+			"enum fields list their API values in the description"
+		]
 	}
 }

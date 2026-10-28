@@ -4,6 +4,7 @@
 // (`npm test`).
 
 import assert from 'node:assert/strict';
+import { createRequire } from 'node:module';
 import { after, before, beforeEach, describe, test } from 'node:test';
 import { queryValues, runSalvy, startFakeApi } from './routingHarness.mjs';
 
@@ -110,6 +111,113 @@ describe('Limit sends page exactly once and never paginates', () => {
 				assert.deepEqual(queryValues(request, 'pageSize'), ['200']);
 				assert.deepEqual(queryValues(request, 'productType'), ['mobile']);
 			});
+		});
+	}
+});
+
+describe('enum fields are selectable and list their API values', async () => {
+	const require = createRequire(import.meta.url);
+	const spec = require('../openapi/salvy-v3.json');
+	const { properties } = require('../dist/nodes/Salvy/Salvy.properties.generated.js');
+	const { OPERATIONS } = await import('../scripts/salvy-operations.mjs');
+
+	// Allowed values of a spec schema, or undefined when it also takes free text.
+	const enumValuesOf = (schema) => {
+		const variants = (schema.anyOf ?? [schema]).filter((v) => v.type !== 'null');
+		const values = [];
+		for (const v of variants) {
+			if (v.enum) values.push(...v.enum);
+			else if ('const' in v) values.push(v.const);
+			else return undefined;
+		}
+		return values;
+	};
+
+	// Node fields (top-level or inside a collection) shown for one operation.
+	const fieldsFor = ({ resource, value }, name) =>
+		properties
+			.filter(
+				(p) =>
+					p.displayOptions?.show?.resource?.includes(resource) &&
+					p.displayOptions.show.operation?.includes(value),
+			)
+			.flatMap((p) => [p, ...(p.type === 'collection' ? p.options : [])])
+			.filter((f) => f.name === name);
+
+	// Every enum in the spec's query params and request bodies (oneOf branches
+	// merged, as the generator does), for the operations the node includes.
+	const enumFields = [];
+	for (const item of Object.values(spec.paths)) {
+		for (const op of Object.values(item)) {
+			const cfg = OPERATIONS[op?.operationId];
+			if (!cfg || cfg.exclude) continue;
+			for (const param of op.parameters ?? []) {
+				if (param.in !== 'query') continue;
+				const isArray = param.schema.type === 'array';
+				const values = enumValuesOf(isArray ? param.schema.items : param.schema);
+				if (values) enumFields.push({ op: op.operationId, cfg, name: param.name, values, isArray });
+			}
+			const body = op.requestBody?.content?.['application/json']?.schema;
+			const byProp = {};
+			for (const branch of body?.oneOf ?? (body ? [body] : [])) {
+				for (const [key, prop] of Object.entries(branch.properties ?? {})) {
+					const values = enumValuesOf(prop);
+					if (values) byProp[key] = [...new Set([...(byProp[key] ?? []), ...values])];
+				}
+			}
+			for (const [name, values] of Object.entries(byProp)) {
+				enumFields.push({ op: op.operationId, cfg, name, values, isArray: false });
+			}
+		}
+	}
+
+	test('every spec enum is an options / multiOptions field with exactly its values', () => {
+		assert.ok(enumFields.length > 30, `found ${enumFields.length} enum fields`);
+		const problems = [];
+		for (const { op, cfg, name, values, isArray } of enumFields) {
+			const where = `${op}.${name}`;
+			const fields = fieldsFor(cfg, name);
+			if (!fields.length) problems.push(`${where}: no field`);
+			for (const field of fields) {
+				const type = isArray ? 'multiOptions' : 'options';
+				if (field.type !== type) problems.push(`${where}: ${field.type}, expected ${type}`);
+				const got = (field.options ?? []).map((o) => o.value).sort();
+				if (JSON.stringify(got) !== JSON.stringify([...values].sort()))
+					problems.push(`${where}: options ${got} != spec ${values}`);
+				for (const o of field.options ?? []) {
+					if (!o.name || o.name === o.value)
+						problems.push(`${where}: unreadable name for ${o.value}`);
+				}
+				for (const v of values) {
+					if (!field.description?.includes(`\`${v}\``))
+						problems.push(`${where}: description does not list \`${v}\``);
+				}
+			}
+		}
+		assert.deepEqual(problems, []);
+	});
+});
+
+describe('multi-select filters accept the UI array and expression / AI text', () => {
+	const cases = [
+		['an array from the UI', ['mobile', 'mobile-did'], ['mobile', 'mobile-did']],
+		[
+			'a comma-separated expression ($fromAI-style text)',
+			'={{ "mobile, mobile-did" }}',
+			['mobile', 'mobile-did'],
+		],
+		['a single value as text', '={{ "global" }}', ['global']],
+		['an array expression', '={{ ["global"] }}', ['global']],
+	];
+	for (const [label, productType, expected] of cases) {
+		test(label, async () => {
+			await runSalvy(api.baseUrl, {
+				resource: 'phoneAccount',
+				operation: 'getAll',
+				limit: 1,
+				filters: { productType },
+			});
+			assert.deepEqual(queryValues(api.requests[0], 'productType'), expected);
 		});
 	}
 });
