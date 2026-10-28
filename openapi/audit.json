@@ -9,7 +9,7 @@
 		"status": "fixed",
 		"notes": [
 			"array query params as multi-select (generator sends them as a JSON string)",
-			"page/pageSize replaced by Return All + Limit with generic pagination",
+			"page/pageSize replaced by Return All + Limit; Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
 			"response is a oneOf union keyed by `type`; items are passed through as-is (the generator does not read responses)",
 			"list response split into one item per record (`data`)"
@@ -48,7 +48,7 @@
 		"endpoint": "GET /api/v3/phone-account-groups",
 		"status": "fixed",
 		"notes": [
-			"page/pageSize replaced by Return All + Limit with generic pagination",
+			"page/pageSize replaced by Return All + Limit; Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"list response split into one item per record (`data`)"
 		]
 	},
@@ -155,7 +155,7 @@
 		"status": "fixed",
 		"notes": [
 			"array query params as multi-select (generator sends them as a JSON string)",
-			"page/pageSize replaced by Return All + Limit with generic pagination",
+			"page/pageSize replaced by Return All + Limit; Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
 			"list response split into one item per record (`data`)"
 		]
@@ -166,7 +166,7 @@
 		"notes": [
 			"array query params as multi-select (generator sends them as a JSON string)",
 			"array query params as comma-separated text (generator sends them as a JSON string)",
-			"page/pageSize replaced by Return All + Limit with generic pagination",
+			"page/pageSize replaced by Return All + Limit; Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
 			"list response split into one item per record (`data`)"
 		]
@@ -205,7 +205,7 @@
 		"status": "fixed",
 		"notes": [
 			"array query params as multi-select (generator sends them as a JSON string)",
-			"page/pageSize replaced by Return All + Limit with generic pagination",
+			"page/pageSize replaced by Return All + Limit; Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
 			"list response split into one item per record (`data`)"
 		]
@@ -244,7 +244,7 @@
 		"status": "fixed",
 		"notes": [
 			"array query params as multi-select (generator sends them as a JSON string)",
-			"page/pageSize replaced by Return All + Limit with generic pagination",
+			"page/pageSize replaced by Return All + Limit; Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
 			"list response split into one item per record (`data`)"
 		]
@@ -282,7 +282,7 @@
 		"endpoint": "GET /api/v3/companies",
 		"status": "fixed",
 		"notes": [
-			"page/pageSize replaced by Return All + Limit with generic pagination",
+			"page/pageSize replaced by Return All + Limit; Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"list response split into one item per record (`data`)"
 		]
 	},
@@ -317,7 +317,7 @@
 		"status": "fixed",
 		"notes": [
 			"array query params as multi-select (generator sends them as a JSON string)",
-			"page/pageSize replaced by Return All + Limit with generic pagination",
+			"page/pageSize replaced by Return All + Limit; Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
 			"list response split into one item per record (`data`)"
 		]
@@ -326,7 +326,7 @@
 		"endpoint": "GET /api/v3/invoices/{id}/phone-accounts",
 		"status": "fixed",
 		"notes": [
-			"page/pageSize replaced by Return All + Limit with generic pagination",
+			"page/pageSize replaced by Return All + Limit; Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"list response split into one item per record (`data`)"
 		]
 	},
@@ -349,7 +349,7 @@
 			"`includeArchived` is a string in the spec; exposed as a boolean",
 			"array query params as multi-select (generator sends them as a JSON string)",
 			"array query params as comma-separated text (generator sends them as a JSON string)",
-			"page/pageSize replaced by Return All + Limit with generic pagination",
+			"page/pageSize replaced by Return All + Limit; Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
 			"list response split into one item per record (`data`)"
 		]
@@ -402,7 +402,7 @@
 		"notes": [
 			"array query params as comma-separated text (generator sends them as a JSON string)",
 			"array query params as multi-select (generator sends them as a JSON string)",
-			"page/pageSize replaced by Return All + Limit with generic pagination",
+			"page/pageSize replaced by Return All + Limit; Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
 			"list response split into one item per record (`data`)"
 		]

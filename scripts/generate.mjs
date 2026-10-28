@@ -591,7 +591,10 @@ for (const resource of Object.keys(RESOURCES)) {
 			fix(opId, 'not paginated (no `pagination` in the response): no Return All/Limit');
 		}
 		if (paginated) {
-			fix(opId, 'page/pageSize replaced by Return All + Limit with generic pagination');
+			fix(
+				opId,
+				'page/pageSize replaced by Return All + Limit; Return All re-sends every query param on each page (generic pagination replaces `qs`)',
+			);
 			fieldsOut.push(
 				{
 					displayName: 'Return All',
@@ -609,9 +612,15 @@ for (const resource of Object.keys(RESOURCES)) {
 									continue:
 										'={{ $response.body.pagination.page < $response.body.pagination.totalPages }}',
 									request: {
-										// Generic pagination replaces whole option keys, so `qs` cannot be
-										// patched here without dropping the filters; page goes in the URL.
-										url: '={{ $request.url + "?page=" + (($response.body?.pagination?.page ?? 0) + 1) }}',
+										// Generic pagination shallow-merges this over the request options,
+										// replacing `qs` whole, so every query param the operation takes
+										// (filters, sort, pageSize) is carried over from the current request.
+										qs: Object.fromEntries([
+											['page', '={{ ($response.body?.pagination?.page ?? 0) + 1 }}'],
+											...(op.parameters ?? [])
+												.filter((p) => p.in === 'query' && p.name !== 'page')
+												.map((p) => [p.name, `={{ $request.qs[${JSON.stringify(p.name)}] }}`]),
+										]),
 									},
 								},
 							},

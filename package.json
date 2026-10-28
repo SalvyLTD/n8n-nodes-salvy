@@ -51,6 +51,7 @@
 		"@devlikeapro/n8n-openapi-node": "0.1.4",
 		"@n8n/node-cli": "0.52.2",
 		"eslint": "9.32.0",
+		"n8n-core": "2.45.4",
 		"prettier": "3.6.2",
 		"release-it": "^21.1.0",
 		"typescript": "5.9.2"

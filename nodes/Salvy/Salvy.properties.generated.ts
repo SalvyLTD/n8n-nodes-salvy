@@ -1293,7 +1293,20 @@ export const properties: INodeProperties[] = [
 						continue:
 							'={{ $response.body.pagination.page < $response.body.pagination.totalPages }}',
 						request: {
-							url: '={{ $request.url + "?page=" + (($response.body?.pagination?.page ?? 0) + 1) }}',
+							qs: {
+								page: '={{ ($response.body?.pagination?.page ?? 0) + 1 }}',
+								pageSize: '={{ $request.qs["pageSize"] }}',
+								includeArchived: '={{ $request.qs["includeArchived"] }}',
+								status: '={{ $request.qs["status"] }}',
+								category: '={{ $request.qs["category"] }}',
+								employeeId: '={{ $request.qs["employeeId"] }}',
+								serialNumber: '={{ $request.qs["serialNumber"] }}',
+								enrollmentId: '={{ $request.qs["enrollmentId"] }}',
+								createdAtFrom: '={{ $request.qs["createdAtFrom"] }}',
+								createdAtTo: '={{ $request.qs["createdAtTo"] }}',
+								sortBy: '={{ $request.qs["sortBy"] }}',
+								sortOrder: '={{ $request.qs["sortOrder"] }}',
+							},
 						},
 					},
 				},
@@ -2549,7 +2562,13 @@ export const properties: INodeProperties[] = [
 						continue:
 							'={{ $response.body.pagination.page < $response.body.pagination.totalPages }}',
 						request: {
-							url: '={{ $request.url + "?page=" + (($response.body?.pagination?.page ?? 0) + 1) }}',
+							qs: {
+								page: '={{ ($response.body?.pagination?.page ?? 0) + 1 }}',
+								pageSize: '={{ $request.qs["pageSize"] }}',
+								assetId: '={{ $request.qs["assetId"] }}',
+								employeeId: '={{ $request.qs["employeeId"] }}',
+								status: '={{ $request.qs["status"] }}',
+							},
 						},
 					},
 				},
@@ -2878,7 +2897,10 @@ export const properties: INodeProperties[] = [
 						continue:
 							'={{ $response.body.pagination.page < $response.body.pagination.totalPages }}',
 						request: {
-							url: '={{ $request.url + "?page=" + (($response.body?.pagination?.page ?? 0) + 1) }}',
+							qs: {
+								page: '={{ ($response.body?.pagination?.page ?? 0) + 1 }}',
+								pageSize: '={{ $request.qs["pageSize"] }}',
+							},
 						},
 					},
 				},
@@ -2940,7 +2962,11 @@ export const properties: INodeProperties[] = [
 						continue:
 							'={{ $response.body.pagination.page < $response.body.pagination.totalPages }}',
 						request: {
-							url: '={{ $request.url + "?page=" + (($response.body?.pagination?.page ?? 0) + 1) }}',
+							qs: {
+								page: '={{ ($response.body?.pagination?.page ?? 0) + 1 }}',
+								pageSize: '={{ $request.qs["pageSize"] }}',
+								status: '={{ $request.qs["status"] }}',
+							},
 						},
 					},
 				},
@@ -3483,7 +3509,19 @@ export const properties: INodeProperties[] = [
 						continue:
 							'={{ $response.body.pagination.page < $response.body.pagination.totalPages }}',
 						request: {
-							url: '={{ $request.url + "?page=" + (($response.body?.pagination?.page ?? 0) + 1) }}',
+							qs: {
+								page: '={{ ($response.body?.pagination?.page ?? 0) + 1 }}',
+								pageSize: '={{ $request.qs["pageSize"] }}',
+								status: '={{ $request.qs["status"] }}',
+								contractType: '={{ $request.qs["contractType"] }}',
+								cpf: '={{ $request.qs["cpf"] }}',
+								admittedAtFrom: '={{ $request.qs["admittedAtFrom"] }}',
+								admittedAtTo: '={{ $request.qs["admittedAtTo"] }}',
+								terminatedAtFrom: '={{ $request.qs["terminatedAtFrom"] }}',
+								terminatedAtTo: '={{ $request.qs["terminatedAtTo"] }}',
+								sortBy: '={{ $request.qs["sortBy"] }}',
+								sortOrder: '={{ $request.qs["sortOrder"] }}',
+							},
 						},
 					},
 				},
@@ -4742,7 +4780,17 @@ export const properties: INodeProperties[] = [
 						continue:
 							'={{ $response.body.pagination.page < $response.body.pagination.totalPages }}',
 						request: {
-							url: '={{ $request.url + "?page=" + (($response.body?.pagination?.page ?? 0) + 1) }}',
+							qs: {
+								page: '={{ ($response.body?.pagination?.page ?? 0) + 1 }}',
+								pageSize: '={{ $request.qs["pageSize"] }}',
+								status: '={{ $request.qs["status"] }}',
+								product: '={{ $request.qs["product"] }}',
+								monthYear: '={{ $request.qs["monthYear"] }}',
+								fromMonthYear: '={{ $request.qs["fromMonthYear"] }}',
+								toMonthYear: '={{ $request.qs["toMonthYear"] }}',
+								sortBy: '={{ $request.qs["sortBy"] }}',
+								sortOrder: '={{ $request.qs["sortOrder"] }}',
+							},
 						},
 					},
 				},
@@ -5034,7 +5082,10 @@ export const properties: INodeProperties[] = [
 						continue:
 							'={{ $response.body.pagination.page < $response.body.pagination.totalPages }}',
 						request: {
-							url: '={{ $request.url + "?page=" + (($response.body?.pagination?.page ?? 0) + 1) }}',
+							qs: {
+								page: '={{ ($response.body?.pagination?.page ?? 0) + 1 }}',
+								pageSize: '={{ $request.qs["pageSize"] }}',
+							},
 						},
 					},
 				},
@@ -5957,7 +6008,13 @@ export const properties: INodeProperties[] = [
 						continue:
 							'={{ $response.body.pagination.page < $response.body.pagination.totalPages }}',
 						request: {
-							url: '={{ $request.url + "?page=" + (($response.body?.pagination?.page ?? 0) + 1) }}',
+							qs: {
+								page: '={{ ($response.body?.pagination?.page ?? 0) + 1 }}',
+								pageSize: '={{ $request.qs["pageSize"] }}',
+								receivedAtFrom: '={{ $request.qs["receivedAtFrom"] }}',
+								receivedAtTo: '={{ $request.qs["receivedAtTo"] }}',
+								service: '={{ $request.qs["service"] }}',
+							},
 						},
 					},
 				},
@@ -6324,7 +6381,23 @@ export const properties: INodeProperties[] = [
 						continue:
 							'={{ $response.body.pagination.page < $response.body.pagination.totalPages }}',
 						request: {
-							url: '={{ $request.url + "?page=" + (($response.body?.pagination?.page ?? 0) + 1) }}',
+							qs: {
+								page: '={{ ($response.body?.pagination?.page ?? 0) + 1 }}',
+								pageSize: '={{ $request.qs["pageSize"] }}',
+								status: '={{ $request.qs["status"] }}',
+								productType: '={{ $request.qs["productType"] }}',
+								phoneNumber: '={{ $request.qs["phoneNumber"] }}',
+								employeeId: '={{ $request.qs["employeeId"] }}',
+								costCenterId: '={{ $request.qs["costCenterId"] }}',
+								createdAtFrom: '={{ $request.qs["createdAtFrom"] }}',
+								createdAtTo: '={{ $request.qs["createdAtTo"] }}',
+								activatedAtFrom: '={{ $request.qs["activatedAtFrom"] }}',
+								activatedAtTo: '={{ $request.qs["activatedAtTo"] }}',
+								canceledAtFrom: '={{ $request.qs["canceledAtFrom"] }}',
+								canceledAtTo: '={{ $request.qs["canceledAtTo"] }}',
+								sortBy: '={{ $request.qs["sortBy"] }}',
+								sortOrder: '={{ $request.qs["sortOrder"] }}',
+							},
 						},
 					},
 				},
@@ -6813,7 +6886,10 @@ export const properties: INodeProperties[] = [
 						continue:
 							'={{ $response.body.pagination.page < $response.body.pagination.totalPages }}',
 						request: {
-							url: '={{ $request.url + "?page=" + (($response.body?.pagination?.page ?? 0) + 1) }}',
+							qs: {
+								page: '={{ ($response.body?.pagination?.page ?? 0) + 1 }}',
+								pageSize: '={{ $request.qs["pageSize"] }}',
+							},
 						},
 					},
 				},
@@ -7127,7 +7203,11 @@ export const properties: INodeProperties[] = [
 						continue:
 							'={{ $response.body.pagination.page < $response.body.pagination.totalPages }}',
 						request: {
-							url: '={{ $request.url + "?page=" + (($response.body?.pagination?.page ?? 0) + 1) }}',
+							qs: {
+								page: '={{ ($response.body?.pagination?.page ?? 0) + 1 }}',
+								pageSize: '={{ $request.qs["pageSize"] }}',
+								status: '={{ $request.qs["status"] }}',
+							},
 						},
 					},
 				},
