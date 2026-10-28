@@ -13,7 +13,8 @@
 			"page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
 			"response is a oneOf union keyed by `type`; items are passed through as-is (the generator does not read responses)",
-			"list response split into one item per record (`data`)"
+			"list response split into one item per record (`data`)",
+			"Limit mode adds `pagination.totalCount` to each record as `totalCount`"
 		]
 	},
 	"publicCreateWebrtcTokenV3": {
@@ -51,7 +52,8 @@
 		"status": "fixed",
 		"notes": [
 			"page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)",
-			"list response split into one item per record (`data`)"
+			"list response split into one item per record (`data`)",
+			"Limit mode adds `pagination.totalCount` to each record as `totalCount`"
 		]
 	},
 	"publicCreatePhoneAccountGroupV3": {
@@ -165,7 +167,8 @@
 			"enum fields list their API values in the description",
 			"page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
-			"list response split into one item per record (`data`)"
+			"list response split into one item per record (`data`)",
+			"Limit mode adds `pagination.totalCount` to each record as `totalCount`"
 		]
 	},
 	"publicListPhoneAccountsV3": {
@@ -177,7 +180,8 @@
 			"array query params as comma-separated text (generator sends them as a JSON string)",
 			"page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
-			"list response split into one item per record (`data`)"
+			"list response split into one item per record (`data`)",
+			"Limit mode adds `pagination.totalCount` to each record as `totalCount`"
 		]
 	},
 	"publicSimulatePhoneAccountSmsV3": {
@@ -217,7 +221,8 @@
 			"enum fields list their API values in the description",
 			"page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
-			"list response split into one item per record (`data`)"
+			"list response split into one item per record (`data`)",
+			"Limit mode adds `pagination.totalCount` to each record as `totalCount`"
 		]
 	},
 	"publicCreateEmployeeV3": {
@@ -259,7 +264,8 @@
 			"enum fields list their API values in the description",
 			"page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
-			"list response split into one item per record (`data`)"
+			"list response split into one item per record (`data`)",
+			"Limit mode adds `pagination.totalCount` to each record as `totalCount`"
 		]
 	},
 	"publicCreateCostCenterV3": {
@@ -298,7 +304,8 @@
 		"status": "fixed",
 		"notes": [
 			"page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)",
-			"list response split into one item per record (`data`)"
+			"list response split into one item per record (`data`)",
+			"Limit mode adds `pagination.totalCount` to each record as `totalCount`"
 		]
 	},
 	"publicGetInvoiceNfePdfV3": {
@@ -335,7 +342,8 @@
 			"enum fields list their API values in the description",
 			"page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
-			"list response split into one item per record (`data`)"
+			"list response split into one item per record (`data`)",
+			"Limit mode adds `pagination.totalCount` to each record as `totalCount`"
 		]
 	},
 	"publicListInvoicePhoneAccountsV3": {
@@ -343,7 +351,8 @@
 		"status": "fixed",
 		"notes": [
 			"page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)",
-			"list response split into one item per record (`data`)"
+			"list response split into one item per record (`data`)",
+			"Limit mode adds `pagination.totalCount` to each record as `totalCount`"
 		]
 	},
 	"publicArchiveAssetV3": {
@@ -368,7 +377,8 @@
 			"array query params as comma-separated text (generator sends them as a JSON string)",
 			"page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
-			"list response split into one item per record (`data`)"
+			"list response split into one item per record (`data`)",
+			"Limit mode adds `pagination.totalCount` to each record as `totalCount`"
 		]
 	},
 	"publicCreateAssetV3": {
@@ -424,7 +434,8 @@
 			"enum fields list their API values in the description",
 			"page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
-			"list response split into one item per record (`data`)"
+			"list response split into one item per record (`data`)",
+			"Limit mode adds `pagination.totalCount` to each record as `totalCount`"
 		]
 	},
 	"publicSendAssetStatementV3": {

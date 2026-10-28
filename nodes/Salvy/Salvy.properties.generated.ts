@@ -151,6 +151,15 @@ export const properties: INodeProperties[] = [
 					output: {
 						postReceive: [
 							{
+								type: 'set',
+								enabled:
+									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
+								properties: {
+									value:
+										'={{ { data: $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) } }}',
+								},
+							},
+							{
 								type: 'rootProperty',
 								properties: {
 									property: 'data',
@@ -258,6 +267,15 @@ export const properties: INodeProperties[] = [
 					output: {
 						postReceive: [
 							{
+								type: 'set',
+								enabled:
+									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
+								properties: {
+									value:
+										'={{ { data: $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) } }}',
+								},
+							},
+							{
 								type: 'rootProperty',
 								properties: {
 									property: 'data',
@@ -358,6 +376,15 @@ export const properties: INodeProperties[] = [
 					output: {
 						postReceive: [
 							{
+								type: 'set',
+								enabled:
+									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
+								properties: {
+									value:
+										'={{ { data: $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) } }}',
+								},
+							},
+							{
 								type: 'rootProperty',
 								properties: {
 									property: 'data',
@@ -440,6 +467,15 @@ export const properties: INodeProperties[] = [
 					},
 					output: {
 						postReceive: [
+							{
+								type: 'set',
+								enabled:
+									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
+								properties: {
+									value:
+										'={{ { data: $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) } }}',
+								},
+							},
 							{
 								type: 'rootProperty',
 								properties: {
@@ -548,6 +584,15 @@ export const properties: INodeProperties[] = [
 					},
 					output: {
 						postReceive: [
+							{
+								type: 'set',
+								enabled:
+									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
+								properties: {
+									value:
+										'={{ { data: $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) } }}',
+								},
+							},
 							{
 								type: 'rootProperty',
 								properties: {
@@ -710,6 +755,15 @@ export const properties: INodeProperties[] = [
 					output: {
 						postReceive: [
 							{
+								type: 'set',
+								enabled:
+									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
+								properties: {
+									value:
+										'={{ { data: $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) } }}',
+								},
+							},
+							{
 								type: 'rootProperty',
 								properties: {
 									property: 'data',
@@ -732,6 +786,15 @@ export const properties: INodeProperties[] = [
 					},
 					output: {
 						postReceive: [
+							{
+								type: 'set',
+								enabled:
+									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
+								properties: {
+									value:
+										'={{ { data: $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) } }}',
+								},
+							},
 							{
 								type: 'rootProperty',
 								properties: {
@@ -884,6 +947,15 @@ export const properties: INodeProperties[] = [
 					output: {
 						postReceive: [
 							{
+								type: 'set',
+								enabled:
+									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
+								properties: {
+									value:
+										'={{ { data: $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) } }}',
+								},
+							},
+							{
 								type: 'rootProperty',
 								properties: {
 									property: 'data',
@@ -906,6 +978,15 @@ export const properties: INodeProperties[] = [
 					},
 					output: {
 						postReceive: [
+							{
+								type: 'set',
+								enabled:
+									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
+								properties: {
+									value:
+										'={{ { data: $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) } }}',
+								},
+							},
 							{
 								type: 'rootProperty',
 								properties: {
@@ -1063,6 +1144,15 @@ export const properties: INodeProperties[] = [
 					output: {
 						postReceive: [
 							{
+								type: 'set',
+								enabled:
+									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
+								properties: {
+									value:
+										'={{ { data: $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) } }}',
+								},
+							},
+							{
 								type: 'rootProperty',
 								properties: {
 									property: 'data',
@@ -1172,6 +1262,15 @@ export const properties: INodeProperties[] = [
 					},
 					output: {
 						postReceive: [
+							{
+								type: 'set',
+								enabled:
+									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
+								properties: {
+									value:
+										'={{ { data: $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) } }}',
+								},
+							},
 							{
 								type: 'rootProperty',
 								properties: {

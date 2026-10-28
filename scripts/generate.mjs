@@ -752,9 +752,23 @@ for (const resource of Object.keys(RESOURCES)) {
 			[okSchema, ...(okSchema?.oneOf ?? [])].some((sc) => sc?.properties?.data?.type === 'array')
 		) {
 			fix(opId, 'list response split into one item per record (`data`)');
-			routing.output = {
-				postReceive: [{ type: 'rootProperty', properties: { property: 'data' } }],
-			};
+			const postReceive = [];
+			if (paginated) {
+				// Limit mode keeps the total: each record gets `totalCount` from the
+				// response's pagination block, so "how many" is a single Limit 1 call.
+				// Return All is unchanged (its records already are the whole set).
+				fix(opId, 'Limit mode adds `pagination.totalCount` to each record as `totalCount`');
+				postReceive.push({
+					type: 'set',
+					enabled: `={{ !${isTrue('$parameter.returnAll')} }}`,
+					properties: {
+						value:
+							'={{ { data: $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) } }}',
+					},
+				});
+			}
+			postReceive.push({ type: 'rootProperty', properties: { property: 'data' } });
+			routing.output = { postReceive };
 		}
 
 		options.push({

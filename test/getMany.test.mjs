@@ -221,3 +221,59 @@ describe('multi-select filters accept the UI array and expression / AI text', ()
 		});
 	}
 });
+
+describe('Limit mode exposes pagination.totalCount', () => {
+	test('Limit 1 returns one record carrying the total', async () => {
+		api.setTotal(137);
+		const items = await runSalvy(api.baseUrl, {
+			resource: 'phoneAccount',
+			operation: 'getAll',
+			limit: 1,
+			filters: { status: ['blocked'] },
+		});
+		assert.deepEqual(items, [{ id: 'rec-1', totalCount: 137 }]);
+		assert.equal(api.requests.length, 1);
+		assert.deepEqual(queryValues(api.requests[0], 'pageSize'), ['1']);
+	});
+
+	test('every record of a Limit page carries the same total, on any list operation', async () => {
+		api.setTotal(7);
+		const items = await runSalvy(api.baseUrl, {
+			resource: 'invoice',
+			operation: 'getAll',
+			limit: 3,
+		});
+		assert.deepEqual(
+			items.map((i) => [i.id, i.totalCount]),
+			[
+				['rec-1', 7],
+				['rec-2', 7],
+				['rec-3', 7],
+			],
+		);
+	});
+
+	test('Limit with no matches outputs no items', async () => {
+		api.setTotal(0);
+		const items = await runSalvy(api.baseUrl, {
+			resource: 'phoneAccount',
+			operation: 'getAll',
+			limit: 1,
+		});
+		assert.deepEqual(items, []);
+	});
+
+	for (const returnAll of [true, '={{ true }}']) {
+		test(`Return All (${returnAll}) stays one plain item per record`, async () => {
+			api.setTotal(250);
+			const items = await runSalvy(api.baseUrl, {
+				resource: 'phoneAccount',
+				operation: 'getAll',
+				returnAll,
+			});
+			assert.equal(items.length, 250);
+			assert.deepEqual(items[0], { id: 'rec-1' });
+			assert.deepEqual(items[249], { id: 'rec-250' });
+		});
+	}
+});
