@@ -151,6 +151,15 @@ export const properties: INodeProperties[] = [
 					output: {
 						postReceive: [
 							{
+								type: 'set',
+								enabled:
+									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
+								properties: {
+									value:
+										'={{ { data: $response.body.data.length ? $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) : [{ totalCount: $response.body.pagination.totalCount }] } }}',
+								},
+							},
+							{
 								type: 'rootProperty',
 								properties: {
 									property: 'data',
@@ -258,6 +267,15 @@ export const properties: INodeProperties[] = [
 					output: {
 						postReceive: [
 							{
+								type: 'set',
+								enabled:
+									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
+								properties: {
+									value:
+										'={{ { data: $response.body.data.length ? $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) : [{ totalCount: $response.body.pagination.totalCount }] } }}',
+								},
+							},
+							{
 								type: 'rootProperty',
 								properties: {
 									property: 'data',
@@ -358,6 +376,15 @@ export const properties: INodeProperties[] = [
 					output: {
 						postReceive: [
 							{
+								type: 'set',
+								enabled:
+									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
+								properties: {
+									value:
+										'={{ { data: $response.body.data.length ? $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) : [{ totalCount: $response.body.pagination.totalCount }] } }}',
+								},
+							},
+							{
 								type: 'rootProperty',
 								properties: {
 									property: 'data',
@@ -440,6 +467,15 @@ export const properties: INodeProperties[] = [
 					},
 					output: {
 						postReceive: [
+							{
+								type: 'set',
+								enabled:
+									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
+								properties: {
+									value:
+										'={{ { data: $response.body.data.length ? $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) : [{ totalCount: $response.body.pagination.totalCount }] } }}',
+								},
+							},
 							{
 								type: 'rootProperty',
 								properties: {
@@ -548,6 +584,15 @@ export const properties: INodeProperties[] = [
 					},
 					output: {
 						postReceive: [
+							{
+								type: 'set',
+								enabled:
+									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
+								properties: {
+									value:
+										'={{ { data: $response.body.data.length ? $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) : [{ totalCount: $response.body.pagination.totalCount }] } }}',
+								},
+							},
 							{
 								type: 'rootProperty',
 								properties: {
@@ -710,6 +755,15 @@ export const properties: INodeProperties[] = [
 					output: {
 						postReceive: [
 							{
+								type: 'set',
+								enabled:
+									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
+								properties: {
+									value:
+										'={{ { data: $response.body.data.length ? $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) : [{ totalCount: $response.body.pagination.totalCount }] } }}',
+								},
+							},
+							{
 								type: 'rootProperty',
 								properties: {
 									property: 'data',
@@ -732,6 +786,15 @@ export const properties: INodeProperties[] = [
 					},
 					output: {
 						postReceive: [
+							{
+								type: 'set',
+								enabled:
+									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
+								properties: {
+									value:
+										'={{ { data: $response.body.data.length ? $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) : [{ totalCount: $response.body.pagination.totalCount }] } }}',
+								},
+							},
 							{
 								type: 'rootProperty',
 								properties: {
@@ -884,6 +947,15 @@ export const properties: INodeProperties[] = [
 					output: {
 						postReceive: [
 							{
+								type: 'set',
+								enabled:
+									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
+								properties: {
+									value:
+										'={{ { data: $response.body.data.length ? $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) : [{ totalCount: $response.body.pagination.totalCount }] } }}',
+								},
+							},
+							{
 								type: 'rootProperty',
 								properties: {
 									property: 'data',
@@ -906,6 +978,15 @@ export const properties: INodeProperties[] = [
 					},
 					output: {
 						postReceive: [
+							{
+								type: 'set',
+								enabled:
+									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
+								properties: {
+									value:
+										'={{ { data: $response.body.data.length ? $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) : [{ totalCount: $response.body.pagination.totalCount }] } }}',
+								},
+							},
 							{
 								type: 'rootProperty',
 								properties: {
@@ -1063,6 +1144,15 @@ export const properties: INodeProperties[] = [
 					output: {
 						postReceive: [
 							{
+								type: 'set',
+								enabled:
+									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
+								properties: {
+									value:
+										'={{ { data: $response.body.data.length ? $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) : [{ totalCount: $response.body.pagination.totalCount }] } }}',
+								},
+							},
+							{
 								type: 'rootProperty',
 								properties: {
 									property: 'data',
@@ -1173,6 +1263,15 @@ export const properties: INodeProperties[] = [
 					output: {
 						postReceive: [
 							{
+								type: 'set',
+								enabled:
+									'={{ !($parameter.returnAll === true || $parameter.returnAll === "true") }}',
+								properties: {
+									value:
+										'={{ { data: $response.body.data.length ? $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) : [{ totalCount: $response.body.pagination.totalCount }] } }}',
+								},
+							},
+							{
 								type: 'rootProperty',
 								properties: {
 									property: 'data',
@@ -1281,10 +1380,13 @@ export const properties: INodeProperties[] = [
 		},
 		routing: {
 			send: {
-				paginate: '={{ $value }}',
-				type: 'query',
-				property: 'pageSize',
-				value: '200',
+				paginate: '={{ ($value === true || $value === "true") }}',
+			},
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ ($value === true || $value === "true") ? 200 : $parameter.limit }}',
+				},
 			},
 			operations: {
 				pagination: {
@@ -1293,7 +1395,20 @@ export const properties: INodeProperties[] = [
 						continue:
 							'={{ $response.body.pagination.page < $response.body.pagination.totalPages }}',
 						request: {
-							url: '={{ $request.url + "?page=" + (($response.body?.pagination?.page ?? 0) + 1) }}',
+							qs: {
+								page: '={{ ($response.body?.pagination?.page ?? 0) + 1 }}',
+								pageSize: '={{ $request.qs["pageSize"] }}',
+								includeArchived: '={{ $request.qs["includeArchived"] }}',
+								status: '={{ $request.qs["status"] }}',
+								category: '={{ $request.qs["category"] }}',
+								employeeId: '={{ $request.qs["employeeId"] }}',
+								serialNumber: '={{ $request.qs["serialNumber"] }}',
+								enrollmentId: '={{ $request.qs["enrollmentId"] }}',
+								createdAtFrom: '={{ $request.qs["createdAtFrom"] }}',
+								createdAtTo: '={{ $request.qs["createdAtTo"] }}',
+								sortBy: '={{ $request.qs["sortBy"] }}',
+								sortOrder: '={{ $request.qs["sortOrder"] }}',
+							},
 						},
 					},
 				},
@@ -1315,17 +1430,6 @@ export const properties: INodeProperties[] = [
 				resource: ['asset'],
 				operation: ['getAll'],
 				returnAll: [false],
-			},
-		},
-		routing: {
-			request: {
-				qs: {
-					page: 1,
-					pageSize: '={{ $value }}',
-				},
-			},
-			output: {
-				maxResults: '={{ $value }}',
 			},
 		},
 	},
@@ -1457,7 +1561,7 @@ export const properties: INodeProperties[] = [
 				displayName: 'Status',
 				name: 'status',
 				description:
-					'Filter by asset status. Does not include archived; use Include Archived to bring archived assets.',
+					'Filter by asset status. Does not include archived; use Include Archived to bring archived assets. Values: `available`, `in-use`, `allocated`, `maintenance`, `broken`, `lost`, `stolen`, `sold`, `donated`, `discarded`, `obsolete`, `blocked`, `pending-verification`, `awaiting-quote`. In an expression, use an array or a comma-separated list.',
 				type: 'multiOptions',
 				options: [
 					{
@@ -1523,7 +1627,8 @@ export const properties: INodeProperties[] = [
 						type: 'query',
 						property: 'status',
 						propertyInDotNotation: false,
-						value: '={{ $value }}',
+						value:
+							'={{ (Array.isArray($value) ? $value : String($value).split(",")).map((v) => String(v).trim()).filter((v) => v) }}',
 					},
 				},
 			},
@@ -1545,7 +1650,8 @@ export const properties: INodeProperties[] = [
 			{
 				displayName: 'Sort By',
 				name: 'sortBy',
-				description: 'Field used to sort the results. Default: createdAt.',
+				description:
+					'Field used to sort the results. Default: createdAt. Values: `createdAt`, `enrollmentId`, `category`.',
 				type: 'options',
 				options: [
 					{
@@ -1574,7 +1680,7 @@ export const properties: INodeProperties[] = [
 			{
 				displayName: 'Sort Order',
 				name: 'sortOrder',
-				description: 'Sort direction. Default: desc.',
+				description: 'Sort direction. Default: desc. Values: `asc`, `desc`.',
 				type: 'options',
 				options: [
 					{
@@ -1625,7 +1731,7 @@ export const properties: INodeProperties[] = [
 		displayName: 'Status',
 		name: 'status',
 		description:
-			'Asset status. Archived is not accepted on creation; archive the asset with Asset > Archive after creating it.',
+			'Asset status. Archived is not accepted on creation; archive the asset with Asset > Archive after creating it. Values: `available`, `in-use`, `allocated`, `maintenance`, `broken`, `lost`, `stolen`, `sold`, `donated`, `discarded`, `obsolete`, `blocked`, `pending-verification`, `awaiting-quote`.',
 		type: 'options',
 		options: [
 			{
@@ -1734,7 +1840,7 @@ export const properties: INodeProperties[] = [
 			{
 				displayName: 'Acquisition Type',
 				name: 'acquisitionType',
-				description: 'How the asset was acquired',
+				description: 'How the asset was acquired. Values: `bought`, `rented`, `other`.',
 				type: 'options',
 				options: [
 					{
@@ -2045,7 +2151,7 @@ export const properties: INodeProperties[] = [
 			{
 				displayName: 'Acquisition Type',
 				name: 'acquisitionType',
-				description: 'How the asset was acquired',
+				description: 'How the asset was acquired. Values: `bought`, `rented`, `other`.',
 				type: 'options',
 				options: [
 					{
@@ -2268,7 +2374,7 @@ export const properties: INodeProperties[] = [
 				displayName: 'Status',
 				name: 'status',
 				description:
-					'Asset status. Archived is not accepted here; use Asset > Archive or Asset > Unarchive.',
+					'Asset status. Archived is not accepted here; use Asset > Archive or Asset > Unarchive. Values: `available`, `in-use`, `allocated`, `maintenance`, `broken`, `lost`, `stolen`, `sold`, `donated`, `discarded`, `obsolete`, `blocked`, `pending-verification`, `awaiting-quote`.',
 				type: 'options',
 				options: [
 					{
@@ -2404,7 +2510,7 @@ export const properties: INodeProperties[] = [
 		displayName: 'Status',
 		name: 'status',
 		description:
-			"Asset status after unarchiving. Required: unarchiving does not restore the asset's previous status.",
+			"Asset status after unarchiving. Required: unarchiving does not restore the asset's previous status. Values: `available`, `in-use`, `allocated`, `maintenance`, `broken`, `lost`, `stolen`, `sold`, `donated`, `discarded`, `obsolete`, `blocked`, `pending-verification`, `awaiting-quote`.",
 		type: 'options',
 		options: [
 			{
@@ -2537,10 +2643,13 @@ export const properties: INodeProperties[] = [
 		},
 		routing: {
 			send: {
-				paginate: '={{ $value }}',
-				type: 'query',
-				property: 'pageSize',
-				value: '200',
+				paginate: '={{ ($value === true || $value === "true") }}',
+			},
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ ($value === true || $value === "true") ? 200 : $parameter.limit }}',
+				},
 			},
 			operations: {
 				pagination: {
@@ -2549,7 +2658,13 @@ export const properties: INodeProperties[] = [
 						continue:
 							'={{ $response.body.pagination.page < $response.body.pagination.totalPages }}',
 						request: {
-							url: '={{ $request.url + "?page=" + (($response.body?.pagination?.page ?? 0) + 1) }}',
+							qs: {
+								page: '={{ ($response.body?.pagination?.page ?? 0) + 1 }}',
+								pageSize: '={{ $request.qs["pageSize"] }}',
+								assetId: '={{ $request.qs["assetId"] }}',
+								employeeId: '={{ $request.qs["employeeId"] }}',
+								status: '={{ $request.qs["status"] }}',
+							},
 						},
 					},
 				},
@@ -2571,17 +2686,6 @@ export const properties: INodeProperties[] = [
 				resource: ['assetStatement'],
 				operation: ['getAll'],
 				returnAll: [false],
-			},
-		},
-		routing: {
-			request: {
-				qs: {
-					page: 1,
-					pageSize: '={{ $value }}',
-				},
-			},
-			output: {
-				maxResults: '={{ $value }}',
 			},
 		},
 	},
@@ -2633,7 +2737,8 @@ export const properties: INodeProperties[] = [
 			{
 				displayName: 'Status',
 				name: 'status',
-				description: 'Filter by statement status',
+				description:
+					'Filter by statement status. Values: `pending-signature`, `signed`, `canceled`. In an expression, use an array or a comma-separated list.',
 				type: 'multiOptions',
 				options: [
 					{
@@ -2655,7 +2760,8 @@ export const properties: INodeProperties[] = [
 						type: 'query',
 						property: 'status',
 						propertyInDotNotation: false,
-						value: '={{ $value }}',
+						value:
+							'={{ (Array.isArray($value) ? $value : String($value).split(",")).map((v) => String(v).trim()).filter((v) => v) }}',
 					},
 				},
 			},
@@ -2664,7 +2770,7 @@ export const properties: INodeProperties[] = [
 	{
 		displayName: 'Type',
 		name: 'type',
-		description: 'Kind of statement to send',
+		description: 'Kind of statement to send. Values: `responsibility`, `return`.',
 		type: 'options',
 		options: [
 			{
@@ -2792,7 +2898,7 @@ export const properties: INodeProperties[] = [
 		displayName: 'Product Type',
 		name: 'productType',
 		description:
-			'Line type to list area codes for: mobile (mobile line) or mobile-did (virtual number). One type per request.',
+			'Line type to list area codes for: mobile (mobile line) or mobile-did (virtual number). One type per request. Values: `mobile`, `mobile-did`.',
 		type: 'options',
 		options: [
 			{
@@ -2866,10 +2972,13 @@ export const properties: INodeProperties[] = [
 		},
 		routing: {
 			send: {
-				paginate: '={{ $value }}',
-				type: 'query',
-				property: 'pageSize',
-				value: '200',
+				paginate: '={{ ($value === true || $value === "true") }}',
+			},
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ ($value === true || $value === "true") ? 200 : $parameter.limit }}',
+				},
 			},
 			operations: {
 				pagination: {
@@ -2878,7 +2987,10 @@ export const properties: INodeProperties[] = [
 						continue:
 							'={{ $response.body.pagination.page < $response.body.pagination.totalPages }}',
 						request: {
-							url: '={{ $request.url + "?page=" + (($response.body?.pagination?.page ?? 0) + 1) }}',
+							qs: {
+								page: '={{ ($response.body?.pagination?.page ?? 0) + 1 }}',
+								pageSize: '={{ $request.qs["pageSize"] }}',
+							},
 						},
 					},
 				},
@@ -2902,17 +3014,6 @@ export const properties: INodeProperties[] = [
 				returnAll: [false],
 			},
 		},
-		routing: {
-			request: {
-				qs: {
-					page: 1,
-					pageSize: '={{ $value }}',
-				},
-			},
-			output: {
-				maxResults: '={{ $value }}',
-			},
-		},
 	},
 	{
 		displayName: 'Return All',
@@ -2928,10 +3029,13 @@ export const properties: INodeProperties[] = [
 		},
 		routing: {
 			send: {
-				paginate: '={{ $value }}',
-				type: 'query',
-				property: 'pageSize',
-				value: '200',
+				paginate: '={{ ($value === true || $value === "true") }}',
+			},
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ ($value === true || $value === "true") ? 200 : $parameter.limit }}',
+				},
 			},
 			operations: {
 				pagination: {
@@ -2940,7 +3044,11 @@ export const properties: INodeProperties[] = [
 						continue:
 							'={{ $response.body.pagination.page < $response.body.pagination.totalPages }}',
 						request: {
-							url: '={{ $request.url + "?page=" + (($response.body?.pagination?.page ?? 0) + 1) }}',
+							qs: {
+								page: '={{ ($response.body?.pagination?.page ?? 0) + 1 }}',
+								pageSize: '={{ $request.qs["pageSize"] }}',
+								status: '={{ $request.qs["status"] }}',
+							},
 						},
 					},
 				},
@@ -2964,17 +3072,6 @@ export const properties: INodeProperties[] = [
 				returnAll: [false],
 			},
 		},
-		routing: {
-			request: {
-				qs: {
-					page: 1,
-					pageSize: '={{ $value }}',
-				},
-			},
-			output: {
-				maxResults: '={{ $value }}',
-			},
-		},
 	},
 	{
 		displayName: 'Filters',
@@ -2992,7 +3089,8 @@ export const properties: INodeProperties[] = [
 			{
 				displayName: 'Status',
 				name: 'status',
-				description: 'Filter by cost center status',
+				description:
+					'Filter by cost center status. Values: `active`, `disabled`. In an expression, use an array or a comma-separated list.',
 				type: 'multiOptions',
 				options: [
 					{
@@ -3010,7 +3108,8 @@ export const properties: INodeProperties[] = [
 						type: 'query',
 						property: 'status',
 						propertyInDotNotation: false,
-						value: '={{ $value }}',
+						value:
+							'={{ (Array.isArray($value) ? $value : String($value).split(",")).map((v) => String(v).trim()).filter((v) => v) }}',
 					},
 				},
 			},
@@ -3143,7 +3242,7 @@ export const properties: INodeProperties[] = [
 				displayName: 'Status',
 				name: 'status',
 				description:
-					'Cost center status: active (in use) or disabled (disabled by the company). Defaults to active when omitted.',
+					'Cost center status: active (in use) or disabled (disabled by the company). Defaults to active when omitted. Values: `active`, `disabled`.',
 				type: 'options',
 				options: [
 					{
@@ -3168,7 +3267,8 @@ export const properties: INodeProperties[] = [
 			{
 				displayName: 'Type',
 				name: 'type',
-				description: 'Cost center type: standard or project (a project of the parent cost center)',
+				description:
+					'Cost center type: standard or project (a project of the parent cost center). Values: `standard`, `project`.',
 				type: 'options',
 				options: [
 					{
@@ -3318,7 +3418,8 @@ export const properties: INodeProperties[] = [
 			{
 				displayName: 'Status',
 				name: 'status',
-				description: 'Cost center status: active (in use) or disabled (disabled by the company)',
+				description:
+					'Cost center status: active (in use) or disabled (disabled by the company). Values: `active`, `disabled`.',
 				type: 'options',
 				options: [
 					{
@@ -3343,7 +3444,8 @@ export const properties: INodeProperties[] = [
 			{
 				displayName: 'Type',
 				name: 'type',
-				description: 'Cost center type: standard or project (a project of the parent cost center)',
+				description:
+					'Cost center type: standard or project (a project of the parent cost center). Values: `standard`, `project`.',
 				type: 'options',
 				options: [
 					{
@@ -3471,10 +3573,13 @@ export const properties: INodeProperties[] = [
 		},
 		routing: {
 			send: {
-				paginate: '={{ $value }}',
-				type: 'query',
-				property: 'pageSize',
-				value: '200',
+				paginate: '={{ ($value === true || $value === "true") }}',
+			},
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ ($value === true || $value === "true") ? 200 : $parameter.limit }}',
+				},
 			},
 			operations: {
 				pagination: {
@@ -3483,7 +3588,19 @@ export const properties: INodeProperties[] = [
 						continue:
 							'={{ $response.body.pagination.page < $response.body.pagination.totalPages }}',
 						request: {
-							url: '={{ $request.url + "?page=" + (($response.body?.pagination?.page ?? 0) + 1) }}',
+							qs: {
+								page: '={{ ($response.body?.pagination?.page ?? 0) + 1 }}',
+								pageSize: '={{ $request.qs["pageSize"] }}',
+								status: '={{ $request.qs["status"] }}',
+								contractType: '={{ $request.qs["contractType"] }}',
+								cpf: '={{ $request.qs["cpf"] }}',
+								admittedAtFrom: '={{ $request.qs["admittedAtFrom"] }}',
+								admittedAtTo: '={{ $request.qs["admittedAtTo"] }}',
+								terminatedAtFrom: '={{ $request.qs["terminatedAtFrom"] }}',
+								terminatedAtTo: '={{ $request.qs["terminatedAtTo"] }}',
+								sortBy: '={{ $request.qs["sortBy"] }}',
+								sortOrder: '={{ $request.qs["sortOrder"] }}',
+							},
 						},
 					},
 				},
@@ -3505,17 +3622,6 @@ export const properties: INodeProperties[] = [
 				resource: ['employee'],
 				operation: ['getAll'],
 				returnAll: [false],
-			},
-		},
-		routing: {
-			request: {
-				qs: {
-					page: 1,
-					pageSize: '={{ $value }}',
-				},
-			},
-			output: {
-				maxResults: '={{ $value }}',
 			},
 		},
 	},
@@ -3569,7 +3675,7 @@ export const properties: INodeProperties[] = [
 				displayName: 'Contract Type',
 				name: 'contractType',
 				description:
-					'Filter by employee contract type. Use __null__ for employees without a contract type.',
+					'Filter by employee contract type. Use __null__ for employees without a contract type. Values: `pj`, `clt`, `intern`, `apprentice`, `temporary`, `third-party`, `__null__`. In an expression, use an array or a comma-separated list.',
 				type: 'multiOptions',
 				options: [
 					{
@@ -3607,7 +3713,8 @@ export const properties: INodeProperties[] = [
 						type: 'query',
 						property: 'contractType',
 						propertyInDotNotation: false,
-						value: '={{ $value }}',
+						value:
+							'={{ (Array.isArray($value) ? $value : String($value).split(",")).map((v) => String(v).trim()).filter((v) => v) }}',
 					},
 				},
 			},
@@ -3631,7 +3738,8 @@ export const properties: INodeProperties[] = [
 			{
 				displayName: 'Status',
 				name: 'status',
-				description: 'Filter by employee status',
+				description:
+					'Filter by employee status. Values: `active`, `terminated`, `on-hold`. In an expression, use an array or a comma-separated list.',
 				type: 'multiOptions',
 				options: [
 					{
@@ -3653,7 +3761,8 @@ export const properties: INodeProperties[] = [
 						type: 'query',
 						property: 'status',
 						propertyInDotNotation: false,
-						value: '={{ $value }}',
+						value:
+							'={{ (Array.isArray($value) ? $value : String($value).split(",")).map((v) => String(v).trim()).filter((v) => v) }}',
 					},
 				},
 			},
@@ -3708,7 +3817,8 @@ export const properties: INodeProperties[] = [
 			{
 				displayName: 'Sort By',
 				name: 'sortBy',
-				description: 'Field used to sort the results. Default: createdAt.',
+				description:
+					'Field used to sort the results. Default: createdAt. Values: `createdAt`, `fullName`, `admittedAt`.',
 				type: 'options',
 				options: [
 					{
@@ -3737,7 +3847,7 @@ export const properties: INodeProperties[] = [
 			{
 				displayName: 'Sort Order',
 				name: 'sortOrder',
-				description: 'Sort direction. Default: desc.',
+				description: 'Sort direction. Default: desc. Values: `asc`, `desc`.',
 				type: 'options',
 				options: [
 					{
@@ -3786,7 +3896,7 @@ export const properties: INodeProperties[] = [
 	{
 		displayName: 'Status',
 		name: 'status',
-		description: 'Employee status',
+		description: 'Employee status. Values: `active`, `terminated`, `on-hold`.',
 		type: 'options',
 		options: [
 			{
@@ -4530,7 +4640,7 @@ export const properties: INodeProperties[] = [
 			{
 				displayName: 'Status',
 				name: 'status',
-				description: 'Employee status',
+				description: 'Employee status. Values: `active`, `terminated`, `on-hold`.',
 				type: 'options',
 				options: [
 					{
@@ -4730,10 +4840,13 @@ export const properties: INodeProperties[] = [
 		},
 		routing: {
 			send: {
-				paginate: '={{ $value }}',
-				type: 'query',
-				property: 'pageSize',
-				value: '200',
+				paginate: '={{ ($value === true || $value === "true") }}',
+			},
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ ($value === true || $value === "true") ? 200 : $parameter.limit }}',
+				},
 			},
 			operations: {
 				pagination: {
@@ -4742,7 +4855,17 @@ export const properties: INodeProperties[] = [
 						continue:
 							'={{ $response.body.pagination.page < $response.body.pagination.totalPages }}',
 						request: {
-							url: '={{ $request.url + "?page=" + (($response.body?.pagination?.page ?? 0) + 1) }}',
+							qs: {
+								page: '={{ ($response.body?.pagination?.page ?? 0) + 1 }}',
+								pageSize: '={{ $request.qs["pageSize"] }}',
+								status: '={{ $request.qs["status"] }}',
+								product: '={{ $request.qs["product"] }}',
+								monthYear: '={{ $request.qs["monthYear"] }}',
+								fromMonthYear: '={{ $request.qs["fromMonthYear"] }}',
+								toMonthYear: '={{ $request.qs["toMonthYear"] }}',
+								sortBy: '={{ $request.qs["sortBy"] }}',
+								sortOrder: '={{ $request.qs["sortOrder"] }}',
+							},
 						},
 					},
 				},
@@ -4764,17 +4887,6 @@ export const properties: INodeProperties[] = [
 				resource: ['invoice'],
 				operation: ['getAll'],
 				returnAll: [false],
-			},
-		},
-		routing: {
-			request: {
-				qs: {
-					page: 1,
-					pageSize: '={{ $value }}',
-				},
-			},
-			output: {
-				maxResults: '={{ $value }}',
 			},
 		},
 	},
@@ -4827,7 +4939,8 @@ export const properties: INodeProperties[] = [
 			{
 				displayName: 'Product',
 				name: 'product',
-				description: 'Filter by billed product',
+				description:
+					'Filter by billed product. Values: `telecom`, `asset-management`, `saas-management`. In an expression, use an array or a comma-separated list.',
 				type: 'multiOptions',
 				options: [
 					{
@@ -4849,7 +4962,8 @@ export const properties: INodeProperties[] = [
 						type: 'query',
 						property: 'product',
 						propertyInDotNotation: false,
-						value: '={{ $value }}',
+						value:
+							'={{ (Array.isArray($value) ? $value : String($value).split(",")).map((v) => String(v).trim()).filter((v) => v) }}',
 					},
 				},
 			},
@@ -4857,7 +4971,7 @@ export const properties: INodeProperties[] = [
 				displayName: 'Status',
 				name: 'status',
 				description:
-					'Filter by invoice status. Late is derived: matches open invoices past their due date.',
+					'Filter by invoice status. Late is derived: matches open invoices past their due date. Values: `pending`, `paid`, `failed`, `voided`, `refunded`, `charged-back`, `late`. In an expression, use an array or a comma-separated list.',
 				type: 'multiOptions',
 				options: [
 					{
@@ -4895,7 +5009,8 @@ export const properties: INodeProperties[] = [
 						type: 'query',
 						property: 'status',
 						propertyInDotNotation: false,
-						value: '={{ $value }}',
+						value:
+							'={{ (Array.isArray($value) ? $value : String($value).split(",")).map((v) => String(v).trim()).filter((v) => v) }}',
 					},
 				},
 			},
@@ -4933,7 +5048,8 @@ export const properties: INodeProperties[] = [
 			{
 				displayName: 'Sort By',
 				name: 'sortBy',
-				description: 'Field used to sort the results. Default: dueDate.',
+				description:
+					'Field used to sort the results. Default: dueDate. Values: `dueDate`, `referenceMonth`, `amountCents`, `status`, `createdAt`.',
 				type: 'options',
 				options: [
 					{
@@ -4970,7 +5086,7 @@ export const properties: INodeProperties[] = [
 			{
 				displayName: 'Sort Order',
 				name: 'sortOrder',
-				description: 'Sort direction. Default: desc.',
+				description: 'Sort direction. Default: desc. Values: `asc`, `desc`.',
 				type: 'options',
 				options: [
 					{
@@ -5022,10 +5138,13 @@ export const properties: INodeProperties[] = [
 		},
 		routing: {
 			send: {
-				paginate: '={{ $value }}',
-				type: 'query',
-				property: 'pageSize',
-				value: '200',
+				paginate: '={{ ($value === true || $value === "true") }}',
+			},
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ ($value === true || $value === "true") ? 200 : $parameter.limit }}',
+				},
 			},
 			operations: {
 				pagination: {
@@ -5034,7 +5153,10 @@ export const properties: INodeProperties[] = [
 						continue:
 							'={{ $response.body.pagination.page < $response.body.pagination.totalPages }}',
 						request: {
-							url: '={{ $request.url + "?page=" + (($response.body?.pagination?.page ?? 0) + 1) }}',
+							qs: {
+								page: '={{ ($response.body?.pagination?.page ?? 0) + 1 }}',
+								pageSize: '={{ $request.qs["pageSize"] }}',
+							},
 						},
 					},
 				},
@@ -5056,17 +5178,6 @@ export const properties: INodeProperties[] = [
 				resource: ['invoice'],
 				operation: ['getPhoneAccounts'],
 				returnAll: [false],
-			},
-		},
-		routing: {
-			request: {
-				qs: {
-					page: 1,
-					pageSize: '={{ $value }}',
-				},
-			},
-			output: {
-				maxResults: '={{ $value }}',
 			},
 		},
 	},
@@ -5209,7 +5320,8 @@ export const properties: INodeProperties[] = [
 	{
 		displayName: 'Reason',
 		name: 'reason',
-		description: 'Reason for blocking the phone account',
+		description:
+			'Reason for blocking the phone account. Values: `theft`, `loss`, `misuse`, `no-usage`, `whatsapp-ban`, `unnecessary`, `technical-issues`, `trip-ended`, `other`.',
 		type: 'options',
 		options: [
 			{
@@ -5314,7 +5426,8 @@ export const properties: INodeProperties[] = [
 	{
 		displayName: 'Reason',
 		name: 'reason',
-		description: 'Reason for canceling the phone account',
+		description:
+			'Reason for canceling the phone account. Values: `employee-fired`, `unnecessary`, `no-coverage`, `technical-problems`, `whatsapp-problems`, `whatsapp-blocked`, `sim-card-swap`, `other`.',
 		type: 'options',
 		options: [
 			{
@@ -5400,7 +5513,7 @@ export const properties: INodeProperties[] = [
 				displayName: 'Type',
 				name: 'type',
 				description:
-					'When the phone account is canceled. Immediate cancels right away. Scheduled keeps it working until the end of the current billing cycle and cancels it on that date. Only an active phone account can have its cancellation scheduled. In both cases the current month is billed.',
+					'When the phone account is canceled. Immediate cancels right away. Scheduled keeps it working until the end of the current billing cycle and cancels it on that date. Only an active phone account can have its cancellation scheduled. In both cases the current month is billed. Values: `immediate`, `scheduled`.',
 				type: 'options',
 				options: [
 					{
@@ -5583,7 +5696,8 @@ export const properties: INodeProperties[] = [
 	{
 		displayName: 'SIM Type',
 		name: 'simType',
-		description: 'Type of SIM for the line. A physical SIM requires its ICCID.',
+		description:
+			'Type of SIM for the line. A physical SIM requires its ICCID. Values: `esim`, `physical`.',
 		type: 'options',
 		options: [
 			{
@@ -5945,10 +6059,13 @@ export const properties: INodeProperties[] = [
 		},
 		routing: {
 			send: {
-				paginate: '={{ $value }}',
-				type: 'query',
-				property: 'pageSize',
-				value: '200',
+				paginate: '={{ ($value === true || $value === "true") }}',
+			},
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ ($value === true || $value === "true") ? 200 : $parameter.limit }}',
+				},
 			},
 			operations: {
 				pagination: {
@@ -5957,7 +6074,13 @@ export const properties: INodeProperties[] = [
 						continue:
 							'={{ $response.body.pagination.page < $response.body.pagination.totalPages }}',
 						request: {
-							url: '={{ $request.url + "?page=" + (($response.body?.pagination?.page ?? 0) + 1) }}',
+							qs: {
+								page: '={{ ($response.body?.pagination?.page ?? 0) + 1 }}',
+								pageSize: '={{ $request.qs["pageSize"] }}',
+								receivedAtFrom: '={{ $request.qs["receivedAtFrom"] }}',
+								receivedAtTo: '={{ $request.qs["receivedAtTo"] }}',
+								service: '={{ $request.qs["service"] }}',
+							},
 						},
 					},
 				},
@@ -5979,17 +6102,6 @@ export const properties: INodeProperties[] = [
 				resource: ['phoneAccount'],
 				operation: ['getSmsMessages'],
 				returnAll: [false],
-			},
-		},
-		routing: {
-			request: {
-				qs: {
-					page: 1,
-					pageSize: '={{ $value }}',
-				},
-			},
-			output: {
-				maxResults: '={{ $value }}',
 			},
 		},
 	},
@@ -6042,7 +6154,7 @@ export const properties: INodeProperties[] = [
 				displayName: 'Service',
 				name: 'service',
 				description:
-					'Only messages whose detected service is in the list. Use __null__ to include messages with no detected service.',
+					'Only messages whose detected service is in the list. Use __null__ to include messages with no detected service. Values: `whatsapp`, `google`, `telegram`, `tiktok`, `shopee`, `amazon`, `facebook`, `nubank`, `microsoft`, `instagram`, `hotmart`, `discord`, `godaddy`, `twilio`, `youtube`, `claude`, `samsung`, `c6`, `ifood`, `paypal`, `autodesk`, `globo`, `apple`, `asaas`, `mercado-livre`, `wechat`, `alipay`, `airbnb`, `snapchat`, `hostgator`, `messages`, `sendpulse`, `kwai`, `salvy`, `santander`, `itau`, `temu`, `mercado-pago`, `indeed`, `zoom`, `x`, `hostinger`, `bradesco`, `banco-do-brasil`, `caixa`, `inter`, `btg`, `sicoob`, `pagbank`, `bmg`, `infinitepay`, `enel`, `booking`, `expedia`, `linkedin`, `pinterest`, `twitch`, `tinder`, `unknown`, `__null__`. In an expression, use an array or a comma-separated list.',
 				type: 'multiOptions',
 				options: [
 					{
@@ -6292,7 +6404,8 @@ export const properties: INodeProperties[] = [
 						type: 'query',
 						property: 'service',
 						propertyInDotNotation: false,
-						value: '={{ $value }}',
+						value:
+							'={{ (Array.isArray($value) ? $value : String($value).split(",")).map((v) => String(v).trim()).filter((v) => v) }}',
 					},
 				},
 			},
@@ -6312,10 +6425,13 @@ export const properties: INodeProperties[] = [
 		},
 		routing: {
 			send: {
-				paginate: '={{ $value }}',
-				type: 'query',
-				property: 'pageSize',
-				value: '200',
+				paginate: '={{ ($value === true || $value === "true") }}',
+			},
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ ($value === true || $value === "true") ? 200 : $parameter.limit }}',
+				},
 			},
 			operations: {
 				pagination: {
@@ -6324,7 +6440,23 @@ export const properties: INodeProperties[] = [
 						continue:
 							'={{ $response.body.pagination.page < $response.body.pagination.totalPages }}',
 						request: {
-							url: '={{ $request.url + "?page=" + (($response.body?.pagination?.page ?? 0) + 1) }}',
+							qs: {
+								page: '={{ ($response.body?.pagination?.page ?? 0) + 1 }}',
+								pageSize: '={{ $request.qs["pageSize"] }}',
+								status: '={{ $request.qs["status"] }}',
+								productType: '={{ $request.qs["productType"] }}',
+								phoneNumber: '={{ $request.qs["phoneNumber"] }}',
+								employeeId: '={{ $request.qs["employeeId"] }}',
+								costCenterId: '={{ $request.qs["costCenterId"] }}',
+								createdAtFrom: '={{ $request.qs["createdAtFrom"] }}',
+								createdAtTo: '={{ $request.qs["createdAtTo"] }}',
+								activatedAtFrom: '={{ $request.qs["activatedAtFrom"] }}',
+								activatedAtTo: '={{ $request.qs["activatedAtTo"] }}',
+								canceledAtFrom: '={{ $request.qs["canceledAtFrom"] }}',
+								canceledAtTo: '={{ $request.qs["canceledAtTo"] }}',
+								sortBy: '={{ $request.qs["sortBy"] }}',
+								sortOrder: '={{ $request.qs["sortOrder"] }}',
+							},
 						},
 					},
 				},
@@ -6346,17 +6478,6 @@ export const properties: INodeProperties[] = [
 				resource: ['phoneAccount'],
 				operation: ['getAll'],
 				returnAll: [false],
-			},
-		},
-		routing: {
-			request: {
-				qs: {
-					page: 1,
-					pageSize: '={{ $value }}',
-				},
-			},
-			output: {
-				maxResults: '={{ $value }}',
 			},
 		},
 	},
@@ -6521,7 +6642,8 @@ export const properties: INodeProperties[] = [
 			{
 				displayName: 'Product Type',
 				name: 'productType',
-				description: "Filter by the phone account's product type",
+				description:
+					"Filter by the phone account's product type. Values: `mobile`, `mobile-did`, `landline-did`, `global`. In an expression, use an array or a comma-separated list.",
 				type: 'multiOptions',
 				options: [
 					{
@@ -6547,14 +6669,16 @@ export const properties: INodeProperties[] = [
 						type: 'query',
 						property: 'productType',
 						propertyInDotNotation: false,
-						value: '={{ $value }}',
+						value:
+							'={{ (Array.isArray($value) ? $value : String($value).split(",")).map((v) => String(v).trim()).filter((v) => v) }}',
 					},
 				},
 			},
 			{
 				displayName: 'Status',
 				name: 'status',
-				description: "Filter by the phone account's public status",
+				description:
+					"Filter by the phone account's public status. Values: `pending`, `available`, `active`, `partial-block`, `blocked`, `canceled`. In an expression, use an array or a comma-separated list.",
 				type: 'multiOptions',
 				options: [
 					{
@@ -6588,7 +6712,8 @@ export const properties: INodeProperties[] = [
 						type: 'query',
 						property: 'status',
 						propertyInDotNotation: false,
-						value: '={{ $value }}',
+						value:
+							'={{ (Array.isArray($value) ? $value : String($value).split(",")).map((v) => String(v).trim()).filter((v) => v) }}',
 					},
 				},
 			},
@@ -6610,7 +6735,8 @@ export const properties: INodeProperties[] = [
 			{
 				displayName: 'Sort By',
 				name: 'sortBy',
-				description: 'Field used to sort the results. Default: createdAt.',
+				description:
+					'Field used to sort the results. Default: createdAt. Values: `createdAt`, `activatedAt`, `name`.',
 				type: 'options',
 				options: [
 					{
@@ -6639,7 +6765,7 @@ export const properties: INodeProperties[] = [
 			{
 				displayName: 'Sort Order',
 				name: 'sortOrder',
-				description: 'Sort direction. Default: desc.',
+				description: 'Sort direction. Default: desc. Values: `asc`, `desc`.',
 				type: 'options',
 				options: [
 					{
@@ -6801,10 +6927,13 @@ export const properties: INodeProperties[] = [
 		},
 		routing: {
 			send: {
-				paginate: '={{ $value }}',
-				type: 'query',
-				property: 'pageSize',
-				value: '200',
+				paginate: '={{ ($value === true || $value === "true") }}',
+			},
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ ($value === true || $value === "true") ? 200 : $parameter.limit }}',
+				},
 			},
 			operations: {
 				pagination: {
@@ -6813,7 +6942,10 @@ export const properties: INodeProperties[] = [
 						continue:
 							'={{ $response.body.pagination.page < $response.body.pagination.totalPages }}',
 						request: {
-							url: '={{ $request.url + "?page=" + (($response.body?.pagination?.page ?? 0) + 1) }}',
+							qs: {
+								page: '={{ ($response.body?.pagination?.page ?? 0) + 1 }}',
+								pageSize: '={{ $request.qs["pageSize"] }}',
+							},
 						},
 					},
 				},
@@ -6835,17 +6967,6 @@ export const properties: INodeProperties[] = [
 				resource: ['phoneAccountGroup'],
 				operation: ['getAll'],
 				returnAll: [false],
-			},
-		},
-		routing: {
-			request: {
-				qs: {
-					page: 1,
-					pageSize: '={{ $value }}',
-				},
-			},
-			output: {
-				maxResults: '={{ $value }}',
 			},
 		},
 	},
@@ -6889,7 +7010,8 @@ export const properties: INodeProperties[] = [
 			{
 				displayName: 'Color',
 				name: 'color',
-				description: 'Group color. Defaults to cyan when omitted.',
+				description:
+					'Group color. Defaults to cyan when omitted. Values: `cyan`, `red`, `purple`, `lime`, `yellow`, `pink`.',
 				type: 'options',
 				options: [
 					{
@@ -6988,7 +7110,7 @@ export const properties: INodeProperties[] = [
 			{
 				displayName: 'Color',
 				name: 'color',
-				description: 'Group color',
+				description: 'Group color. Values: `cyan`, `red`, `purple`, `lime`, `yellow`, `pink`.',
 				type: 'options',
 				options: [
 					{
@@ -7115,10 +7237,13 @@ export const properties: INodeProperties[] = [
 		},
 		routing: {
 			send: {
-				paginate: '={{ $value }}',
-				type: 'query',
-				property: 'pageSize',
-				value: '200',
+				paginate: '={{ ($value === true || $value === "true") }}',
+			},
+			request: {
+				qs: {
+					page: 1,
+					pageSize: '={{ ($value === true || $value === "true") ? 200 : $parameter.limit }}',
+				},
 			},
 			operations: {
 				pagination: {
@@ -7127,7 +7252,11 @@ export const properties: INodeProperties[] = [
 						continue:
 							'={{ $response.body.pagination.page < $response.body.pagination.totalPages }}',
 						request: {
-							url: '={{ $request.url + "?page=" + (($response.body?.pagination?.page ?? 0) + 1) }}',
+							qs: {
+								page: '={{ ($response.body?.pagination?.page ?? 0) + 1 }}',
+								pageSize: '={{ $request.qs["pageSize"] }}',
+								status: '={{ $request.qs["status"] }}',
+							},
 						},
 					},
 				},
@@ -7151,17 +7280,6 @@ export const properties: INodeProperties[] = [
 				returnAll: [false],
 			},
 		},
-		routing: {
-			request: {
-				qs: {
-					page: 1,
-					pageSize: '={{ $value }}',
-				},
-			},
-			output: {
-				maxResults: '={{ $value }}',
-			},
-		},
 	},
 	{
 		displayName: 'Filters',
@@ -7179,7 +7297,8 @@ export const properties: INodeProperties[] = [
 			{
 				displayName: 'Status',
 				name: 'status',
-				description: 'Filter by item result: applied or failed',
+				description:
+					'Filter by item result: applied or failed. Values: `applied`, `failed`. In an expression, use an array or a comma-separated list.',
 				type: 'multiOptions',
 				options: [
 					{
@@ -7197,7 +7316,8 @@ export const properties: INodeProperties[] = [
 						type: 'query',
 						property: 'status',
 						propertyInDotNotation: false,
-						value: '={{ $value }}',
+						value:
+							'={{ (Array.isArray($value) ? $value : String($value).split(",")).map((v) => String(v).trim()).filter((v) => v) }}',
 					},
 				},
 			},

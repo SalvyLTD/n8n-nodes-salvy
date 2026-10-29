@@ -268,9 +268,28 @@ const enumOptions = (values) =>
 		.map((value) => ({ name: value === '__null__' ? 'Not Set' : startCase(value), value }))
 		.sort((a, b) => a.name.localeCompare(b.name));
 
+/** Expression source: whether `v` is a Return All that is really on (true or "true"). */
+const isTrue = (v) => `(${v} === true || ${v} === "true")`;
 const NULLABLE_VALUE = '={{ $value === "" ? null : $value }}';
 const SPLIT_VALUE = '={{ String($value).split(",").map((v) => v.trim()).filter((v) => v) }}';
 const JSON_VALUE = '={{ typeof $value === "string" ? JSON.parse($value) : $value }}';
+// Multi-selects get an array from the UI, but a string from an expression or the
+// AI tool ($fromAI passes multi-selects as text): accept both.
+const MULTI_VALUE =
+	'={{ (Array.isArray($value) ? $value : String($value).split(",")).map((v) => String(v).trim()).filter((v) => v) }}';
+
+/**
+ * Enum fields list their raw API values in the description: display names differ
+ * from the values, and expressions / $fromAI descriptions need the values.
+ */
+function withEnumValues(opId, description, values, multi) {
+	fix(opId, 'enum fields list their API values in the description');
+	const list = values.map((v) => `\`${v}\``).join(', ');
+	const note = multi
+		? `Values: ${list}. In an expression, use an array or a comma-separated list.`
+		: `Values: ${list}.`;
+	return description ? `${description.replace(/\.?$/, '.')} ${note}` : note;
+}
 
 /** Item schema of an array query param: { enumValues?, allowsNull } */
 function arrayItemInfo(items) {
@@ -297,12 +316,14 @@ function buildQueryField(opId, param) {
 		const { enumValues, allowsNull } = arrayItemInfo(schema.items);
 		if (enumValues) {
 			fix(opId, 'array query params as multi-select (generator sends them as a JSON string)');
+			const values = allowsNull ? [...enumValues, '__null__'] : enumValues;
 			return {
 				...base,
+				description: withEnumValues(opId, description, values, true),
 				type: 'multiOptions',
-				options: enumOptions(allowsNull ? [...enumValues, '__null__'] : enumValues),
+				options: enumOptions(values),
 				default: [],
-				routing: send('={{ $value }}'),
+				routing: send(MULTI_VALUE),
 			};
 		}
 		fix(opId, 'array query params as comma-separated text (generator sends them as a JSON string)');
@@ -317,6 +338,7 @@ function buildQueryField(opId, param) {
 	if (schema.enum) {
 		return {
 			...base,
+			description: withEnumValues(opId, description, schema.enum, false),
 			type: 'options',
 			options: enumOptions(schema.enum),
 			default: schema.default ?? schema.enum[0],
@@ -379,6 +401,7 @@ function buildBodyField(opId, key, prop, generatedField, cfg) {
 	if (prop.enum) {
 		return {
 			...base,
+			description: withEnumValues(opId, description, prop.enum, false),
 			type: 'options',
 			options: enumOptions(prop.enum),
 			default: prop.default ?? prop.enum[0],
@@ -568,6 +591,10 @@ for (const resource of Object.keys(RESOURCES)) {
 			const f = [...top, ...additional, ...filters].find((t) => t.name === name);
 			if (!f) throw new Error(`${opId}: override for unknown field ${name}`);
 			Object.assign(f, override);
+			if (override.description && ['options', 'multiOptions'].includes(f.type)) {
+				const values = f.options.map((o) => o.value);
+				f.description = withEnumValues(opId, override.description, values, f.type !== 'options');
+			}
 		}
 
 		for (const f of top) {
@@ -591,7 +618,10 @@ for (const resource of Object.keys(RESOURCES)) {
 			fix(opId, 'not paginated (no `pagination` in the response): no Return All/Limit');
 		}
 		if (paginated) {
-			fix(opId, 'page/pageSize replaced by Return All + Limit with generic pagination');
+			fix(
+				opId,
+				'page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)',
+			);
 			fieldsOut.push(
 				{
 					displayName: 'Return All',
@@ -601,7 +631,14 @@ for (const resource of Object.keys(RESOURCES)) {
 					description: 'Whether to return all results or only up to a given limit',
 					displayOptions: { show },
 					routing: {
-						send: { paginate: '={{ $value }}', type: 'query', property: 'pageSize', value: '200' },
+						// Return All owns page and pageSize for both modes. When Return All is an
+						// expression (AI tool, expression mode) n8n also shows Limit, so Limit must
+						// not route anything itself; and only a real true may turn pagination on
+						// (n8n coerces `paginate` with `!!`, so the string "false" would).
+						send: { paginate: `={{ ${isTrue('$value')} }}` },
+						request: {
+							qs: { page: 1, pageSize: `={{ ${isTrue('$value')} ? 200 : $parameter.limit }}` },
+						},
 						operations: {
 							pagination: {
 								type: 'generic',
@@ -609,9 +646,15 @@ for (const resource of Object.keys(RESOURCES)) {
 									continue:
 										'={{ $response.body.pagination.page < $response.body.pagination.totalPages }}',
 									request: {
-										// Generic pagination replaces whole option keys, so `qs` cannot be
-										// patched here without dropping the filters; page goes in the URL.
-										url: '={{ $request.url + "?page=" + (($response.body?.pagination?.page ?? 0) + 1) }}',
+										// Generic pagination shallow-merges this over the request options,
+										// replacing `qs` whole, so every query param the operation takes
+										// (filters, sort, pageSize) is carried over from the current request.
+										qs: Object.fromEntries([
+											['page', '={{ ($response.body?.pagination?.page ?? 0) + 1 }}'],
+											...(op.parameters ?? [])
+												.filter((p) => p.in === 'query' && p.name !== 'page')
+												.map((p) => [p.name, `={{ $request.qs[${JSON.stringify(p.name)}] }}`]),
+										]),
 									},
 								},
 							},
@@ -626,10 +669,6 @@ for (const resource of Object.keys(RESOURCES)) {
 					default: 50,
 					description: 'Max number of results to return',
 					displayOptions: { show: { ...show, returnAll: [false] } },
-					routing: {
-						request: { qs: { page: 1, pageSize: '={{ $value }}' } },
-						output: { maxResults: '={{ $value }}' },
-					},
 				},
 			);
 		}
@@ -713,9 +752,24 @@ for (const resource of Object.keys(RESOURCES)) {
 			[okSchema, ...(okSchema?.oneOf ?? [])].some((sc) => sc?.properties?.data?.type === 'array')
 		) {
 			fix(opId, 'list response split into one item per record (`data`)');
-			routing.output = {
-				postReceive: [{ type: 'rootProperty', properties: { property: 'data' } }],
-			};
+			const postReceive = [];
+			if (paginated) {
+				// Limit mode keeps the total: each record gets `totalCount` from the
+				// response's pagination block, so "how many" is a single Limit 1 call.
+				// An empty page still outputs one { totalCount } item, so a count of 0 is an answer.
+				// Return All is unchanged (its records already are the whole set).
+				fix(opId, 'Limit mode adds `pagination.totalCount` to each record as `totalCount`');
+				postReceive.push({
+					type: 'set',
+					enabled: `={{ !${isTrue('$parameter.returnAll')} }}`,
+					properties: {
+						value:
+							'={{ { data: $response.body.data.length ? $response.body.data.map((record) => Object.assign({}, record, { totalCount: $response.body.pagination.totalCount })) : [{ totalCount: $response.body.pagination.totalCount }] } }}',
+					},
+				});
+			}
+			postReceive.push({ type: 'rootProperty', properties: { property: 'data' } });
+			routing.output = { postReceive };
 		}
 
 		options.push({

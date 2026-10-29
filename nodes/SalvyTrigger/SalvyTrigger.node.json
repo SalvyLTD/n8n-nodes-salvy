@@ -1,0 +1,18 @@
+{
+	"node": "@salvyltd/n8n-nodes-salvy.salvyTrigger",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Communication", "Finance & Accounting"],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://github.com/SalvyLTD/n8n-nodes-salvy?tab=readme-ov-file#credentials"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://docs.salvy.com.br/api-reference/v3/introduction"
+			}
+		]
+	}
+}

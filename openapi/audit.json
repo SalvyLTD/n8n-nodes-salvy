@@ -9,10 +9,12 @@
 		"status": "fixed",
 		"notes": [
 			"array query params as multi-select (generator sends them as a JSON string)",
-			"page/pageSize replaced by Return All + Limit with generic pagination",
+			"enum fields list their API values in the description",
+			"page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
 			"response is a oneOf union keyed by `type`; items are passed through as-is (the generator does not read responses)",
-			"list response split into one item per record (`data`)"
+			"list response split into one item per record (`data`)",
+			"Limit mode adds `pagination.totalCount` to each record as `totalCount`"
 		]
 	},
 	"publicCreateWebrtcTokenV3": {
@@ -26,6 +28,7 @@
 		"endpoint": "GET /api/v3/area-codes",
 		"status": "fixed",
 		"notes": [
+			"enum fields list their API values in the description",
 			"not paginated (no `pagination` in the response): no Return All/Limit",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
 			"list response split into one item per record (`data`)"
@@ -48,14 +51,16 @@
 		"endpoint": "GET /api/v3/phone-account-groups",
 		"status": "fixed",
 		"notes": [
-			"page/pageSize replaced by Return All + Limit with generic pagination",
-			"list response split into one item per record (`data`)"
+			"page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)",
+			"list response split into one item per record (`data`)",
+			"Limit mode adds `pagination.totalCount` to each record as `totalCount`"
 		]
 	},
 	"publicCreatePhoneAccountGroupV3": {
 		"endpoint": "POST /api/v3/phone-account-groups",
 		"status": "fixed",
 		"notes": [
+			"enum fields list their API values in the description",
 			"optional body fields grouped under Additional Fields (generator sends every field, even empty)"
 		]
 	},
@@ -68,6 +73,7 @@
 		"endpoint": "PATCH /api/v3/phone-account-groups/{id}",
 		"status": "fixed",
 		"notes": [
+			"enum fields list their API values in the description",
 			"optional body fields grouped under Update Fields (generator sends every field, even empty)"
 		]
 	},
@@ -97,6 +103,7 @@
 		"endpoint": "POST /api/v3/phone-accounts/{id}/block",
 		"status": "fixed",
 		"notes": [
+			"enum fields list their API values in the description",
 			"optional body fields grouped under Additional Fields (generator sends every field, even empty)"
 		]
 	},
@@ -104,6 +111,7 @@
 		"endpoint": "POST /api/v3/phone-accounts/{id}/cancel",
 		"status": "fixed",
 		"notes": [
+			"enum fields list their API values in the description",
 			"optional body fields grouped under Additional Fields (generator sends every field, even empty)"
 		]
 	},
@@ -122,6 +130,7 @@
 		"notes": [
 			"oneOf body merged; branch-only fields shown per `simType`",
 			"nullable types (OpenAPI 3.1) collapsed",
+			"enum fields list their API values in the description",
 			"nested `customFields` exposed as a JSON field (generator: first level only)",
 			"optional body fields grouped under Additional Fields (generator sends every field, even empty)"
 		]
@@ -155,9 +164,11 @@
 		"status": "fixed",
 		"notes": [
 			"array query params as multi-select (generator sends them as a JSON string)",
-			"page/pageSize replaced by Return All + Limit with generic pagination",
+			"enum fields list their API values in the description",
+			"page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
-			"list response split into one item per record (`data`)"
+			"list response split into one item per record (`data`)",
+			"Limit mode adds `pagination.totalCount` to each record as `totalCount`"
 		]
 	},
 	"publicListPhoneAccountsV3": {
@@ -165,10 +176,12 @@
 		"status": "fixed",
 		"notes": [
 			"array query params as multi-select (generator sends them as a JSON string)",
+			"enum fields list their API values in the description",
 			"array query params as comma-separated text (generator sends them as a JSON string)",
-			"page/pageSize replaced by Return All + Limit with generic pagination",
+			"page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
-			"list response split into one item per record (`data`)"
+			"list response split into one item per record (`data`)",
+			"Limit mode adds `pagination.totalCount` to each record as `totalCount`"
 		]
 	},
 	"publicSimulatePhoneAccountSmsV3": {
@@ -205,15 +218,18 @@
 		"status": "fixed",
 		"notes": [
 			"array query params as multi-select (generator sends them as a JSON string)",
-			"page/pageSize replaced by Return All + Limit with generic pagination",
+			"enum fields list their API values in the description",
+			"page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
-			"list response split into one item per record (`data`)"
+			"list response split into one item per record (`data`)",
+			"Limit mode adds `pagination.totalCount` to each record as `totalCount`"
 		]
 	},
 	"publicCreateEmployeeV3": {
 		"endpoint": "POST /api/v3/employees",
 		"status": "fixed",
 		"notes": [
+			"enum fields list their API values in the description",
 			"nested `address` hand-written as a collection (generator: first level only)",
 			"optional body fields grouped under Additional Fields (generator sends every field, even empty)"
 		]
@@ -228,6 +244,7 @@
 		"status": "fixed",
 		"notes": [
 			"nullable types (OpenAPI 3.1) collapsed",
+			"enum fields list their API values in the description",
 			"nested `address` hand-written as a collection (generator: first level only)",
 			"optional body fields grouped under Update Fields (generator sends every field, even empty)"
 		]
@@ -244,9 +261,11 @@
 		"status": "fixed",
 		"notes": [
 			"array query params as multi-select (generator sends them as a JSON string)",
-			"page/pageSize replaced by Return All + Limit with generic pagination",
+			"enum fields list their API values in the description",
+			"page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
-			"list response split into one item per record (`data`)"
+			"list response split into one item per record (`data`)",
+			"Limit mode adds `pagination.totalCount` to each record as `totalCount`"
 		]
 	},
 	"publicCreateCostCenterV3": {
@@ -254,6 +273,7 @@
 		"status": "fixed",
 		"notes": [
 			"nullable types (OpenAPI 3.1) collapsed",
+			"enum fields list their API values in the description",
 			"optional body fields grouped under Additional Fields (generator sends every field, even empty)"
 		]
 	},
@@ -267,6 +287,7 @@
 		"status": "fixed",
 		"notes": [
 			"nullable types (OpenAPI 3.1) collapsed",
+			"enum fields list their API values in the description",
 			"optional body fields grouped under Update Fields (generator sends every field, even empty)"
 		]
 	},
@@ -282,8 +303,9 @@
 		"endpoint": "GET /api/v3/companies",
 		"status": "fixed",
 		"notes": [
-			"page/pageSize replaced by Return All + Limit with generic pagination",
-			"list response split into one item per record (`data`)"
+			"page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)",
+			"list response split into one item per record (`data`)",
+			"Limit mode adds `pagination.totalCount` to each record as `totalCount`"
 		]
 	},
 	"publicGetInvoiceNfePdfV3": {
@@ -317,17 +339,20 @@
 		"status": "fixed",
 		"notes": [
 			"array query params as multi-select (generator sends them as a JSON string)",
-			"page/pageSize replaced by Return All + Limit with generic pagination",
+			"enum fields list their API values in the description",
+			"page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
-			"list response split into one item per record (`data`)"
+			"list response split into one item per record (`data`)",
+			"Limit mode adds `pagination.totalCount` to each record as `totalCount`"
 		]
 	},
 	"publicListInvoicePhoneAccountsV3": {
 		"endpoint": "GET /api/v3/invoices/{id}/phone-accounts",
 		"status": "fixed",
 		"notes": [
-			"page/pageSize replaced by Return All + Limit with generic pagination",
-			"list response split into one item per record (`data`)"
+			"page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)",
+			"list response split into one item per record (`data`)",
+			"Limit mode adds `pagination.totalCount` to each record as `totalCount`"
 		]
 	},
 	"publicArchiveAssetV3": {
@@ -348,10 +373,12 @@
 		"notes": [
 			"`includeArchived` is a string in the spec; exposed as a boolean",
 			"array query params as multi-select (generator sends them as a JSON string)",
+			"enum fields list their API values in the description",
 			"array query params as comma-separated text (generator sends them as a JSON string)",
-			"page/pageSize replaced by Return All + Limit with generic pagination",
+			"page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
-			"list response split into one item per record (`data`)"
+			"list response split into one item per record (`data`)",
+			"Limit mode adds `pagination.totalCount` to each record as `totalCount`"
 		]
 	},
 	"publicCreateAssetV3": {
@@ -359,6 +386,7 @@
 		"status": "fixed",
 		"notes": [
 			"nullable types (OpenAPI 3.1) collapsed",
+			"enum fields list their API values in the description",
 			"nested `customFields` exposed as a JSON field (generator: first level only)",
 			"optional body fields grouped under Additional Fields (generator sends every field, even empty)"
 		]
@@ -373,6 +401,7 @@
 		"status": "fixed",
 		"notes": [
 			"nullable types (OpenAPI 3.1) collapsed",
+			"enum fields list their API values in the description",
 			"nested `customFields` exposed as a JSON field (generator: first level only)",
 			"optional body fields grouped under Update Fields (generator sends every field, even empty)"
 		]
@@ -402,9 +431,11 @@
 		"notes": [
 			"array query params as comma-separated text (generator sends them as a JSON string)",
 			"array query params as multi-select (generator sends them as a JSON string)",
-			"page/pageSize replaced by Return All + Limit with generic pagination",
+			"enum fields list their API values in the description",
+			"page/pageSize replaced by Return All + Limit (page sent once, in the query); Return All re-sends every query param on each page (generic pagination replaces `qs`)",
 			"optional query params grouped under Filters/Options (generator sends every param, even empty)",
-			"list response split into one item per record (`data`)"
+			"list response split into one item per record (`data`)",
+			"Limit mode adds `pagination.totalCount` to each record as `totalCount`"
 		]
 	},
 	"publicSendAssetStatementV3": {
@@ -412,6 +443,7 @@
 		"status": "fixed",
 		"notes": [
 			"oneOf body merged; branch-only fields shown per `type`",
+			"enum fields list their API values in the description",
 			"`assetIds` (array of IDs) as comma-separated text (generator: raw JSON field)"
 		]
 	},
@@ -422,7 +454,9 @@
 	},
 	"publicUnarchiveAssetV3": {
 		"endpoint": "POST /api/v3/assets/{id}/unarchive",
-		"status": "generated",
-		"notes": []
+		"status": "fixed",
+		"notes": [
+			"enum fields list their API values in the description"
+		]
 	}
 }

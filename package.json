@@ -28,7 +28,8 @@
 		"generate": "node scripts/generate.mjs",
 		"spec:refresh": "node scripts/refresh-spec.mjs",
 		"release": "n8n-node release",
-		"prepublishOnly": "n8n-node prerelease"
+		"prepublishOnly": "n8n-node prerelease",
+		"test": "n8n-node build && node --test test/*.test.mjs"
 	},
 	"files": [
 		"dist",
@@ -42,13 +43,15 @@
 			"dist/credentials/SalvyApi.credentials.js"
 		],
 		"nodes": [
-			"dist/nodes/Salvy/Salvy.node.js"
+			"dist/nodes/Salvy/Salvy.node.js",
+			"dist/nodes/SalvyTrigger/SalvyTrigger.node.js"
 		]
 	},
 	"devDependencies": {
 		"@devlikeapro/n8n-openapi-node": "0.1.4",
 		"@n8n/node-cli": "0.52.2",
 		"eslint": "9.32.0",
+		"n8n-core": "2.45.4",
 		"prettier": "3.6.2",
 		"release-it": "^21.1.0",
 		"typescript": "5.9.2"
