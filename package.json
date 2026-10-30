@@ -3,7 +3,7 @@
 	"version": "0.2.0",
 	"description": "n8n community node for the Salvy public API: phone accounts, employees, cost centers, assets and invoices",
 	"license": "MIT",
-	"homepage": "https://github.com/SalvyLTD/n8n-nodes-salvy",
+	"homepage": "https://docs.salvy.com.br/api-reference/v3/introduction",
 	"keywords": [
 		"n8n-community-node-package",
 		"n8n",
