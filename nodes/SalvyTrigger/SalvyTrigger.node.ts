@@ -13,6 +13,7 @@ import {
 	type IWebhookResponseData,
 	type JsonObject,
 } from 'n8n-workflow';
+import { eventDescriptions } from './eventDescriptions';
 import { verifySignature } from './verifySignature';
 
 const API_BASE_URL = 'https://api.salvy.com.br/api/v3';
@@ -118,7 +119,7 @@ export class SalvyTrigger implements INodeType {
 		loadOptions: {
 			async getEventTypes(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				const response = await salvyRequest<{
-					data: Array<{ name: string; description?: string | null }>;
+					data: Array<{ name: string }>;
 				}>(this, 'GET', '/webhook-event-types');
 				if (response.statusCode !== 200) {
 					throw apiError(this, response, 'list webhook event types');
@@ -127,7 +128,7 @@ export class SalvyTrigger implements INodeType {
 					.map((eventType) => ({
 						name: eventType.name,
 						value: eventType.name,
-						description: eventType.description ?? undefined,
+						description: eventDescriptions[eventType.name],
 					}))
 					.sort((a, b) => a.name.localeCompare(b.name));
 			},

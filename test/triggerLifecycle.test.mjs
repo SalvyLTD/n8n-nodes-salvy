@@ -12,8 +12,9 @@ const require = createRequire(import.meta.url);
 const { SalvyTrigger } = require('../dist/nodes/SalvyTrigger/SalvyTrigger.node.js');
 
 const EVENT_TYPES = [
-	{ name: 'phone-account.activated', description: 'A phone account was activated' },
+	{ name: 'phone-account.activated', description: 'Evento disparado quando uma linha é ativada' },
 	{ name: 'asset-statement.signed', description: null },
+	{ name: 'brand-new.event', description: 'Evento que o nó ainda não conhece' },
 ];
 
 // --- fake Salvy API ----------------------------------------------------------
@@ -131,14 +132,19 @@ beforeEach(() => {
 	failNext = undefined;
 });
 
-test('loadOptions lists event types with descriptions, sorted', async () => {
+test('loadOptions lists event types sorted, with English descriptions only', async () => {
 	const options = await node.methods.loadOptions.getEventTypes.call(context({ staticData: {} }));
 	assert.deepEqual(options, [
-		{ name: 'asset-statement.signed', value: 'asset-statement.signed', description: undefined },
+		{
+			name: 'asset-statement.signed',
+			value: 'asset-statement.signed',
+			description: 'Sent when an employee signs an asset responsibility or return statement',
+		},
+		{ name: 'brand-new.event', value: 'brand-new.event', description: undefined },
 		{
 			name: 'phone-account.activated',
 			value: 'phone-account.activated',
-			description: 'A phone account was activated',
+			description: 'Sent when a phone line is activated',
 		},
 	]);
 	assert.deepEqual(calls, ['GET /api/v3/webhook-event-types']);
