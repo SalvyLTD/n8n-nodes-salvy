@@ -1,6 +1,8 @@
 # n8n-nodes-salvy
 
-This is an n8n community node for the [Salvy](https://salvy.com.br) public API (v3). It lets you manage phone accounts, employees, cost centers, assets, asset statements and invoices from your n8n workflows.
+This is an n8n community node for the [Salvy](https://salvy.com.br) public API (v3). It lets you manage phone accounts, employees, cost centers, assets, asset statements and invoices from your n8n workflows, and start workflows from Salvy events with the **Salvy Trigger**.
+
+📖 **Salvy API documentation:** [docs.salvy.com.br](https://docs.salvy.com.br/api-reference/v3/introduction) · [API keys and scopes](https://docs.salvy.com.br/api-reference/v3/api-keys) · [Webhooks](https://docs.salvy.com.br/api-reference/v3/webhooks/introduction)
 
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/sustainable-use-license/) workflow automation platform.
 
